@@ -15,12 +15,12 @@ In GSC+(Lobo et al., 2017) dataset:
 
 | **Method**          | Precision |Recall|F1-score| **Set  Similarity** |
 | ------------------- | -------------- | -------------- | -------------- | ------------- |
-| **NCBO  Annotator** | 75.22          | 49.05               | 59.38         | 72.22         |
-| **NeuralCR**        | 72.51          | 58.71               | 64.88         | 78.93         |
-| **Clinphen**        | 55.26          | 38.13               | 45.12         | 55.86         |
-| **MetaMapLite**     | 67.21          | 44.25               | 53.37         | 67.07         |
-| **PhenoPro-NLP**    | 14.47          | 53.32               | 22.76         | 34.64         |
-| **Ours**            | **77.97**      | **60.70**           | **68.26** | **82.41** |
+| NCBO  Annotator | 75.22          | 49.05               | 59.38         | 72.22         |
+| NeuralCR        | 72.51          | 58.71               | 64.88         | 78.93         |
+| Clinphen        | 55.26          | 38.13               | 45.12         | 55.86         |
+| MetaMapLite     | 67.21          | 44.25               | 53.37         | 67.07         |
+| PhenoPro-NLP    | 14.47          | 53.32               | 22.76         | 34.64         |
+| **PhenoBERT**    | **77.97**      | **60.70**           | **68.26** | **82.41** |
 
 
 
@@ -42,3 +42,6 @@ This should also help resolve all of the dependencies of PhenoBERT, for instance
 
 
 
+### Pretrained embeddings and models
+
+We have trained
