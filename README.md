@@ -1,5 +1,5 @@
 # PhenoBERT
- ![logo - Copy](C:\Users\56909\Desktop\学位论文\总版\logo - Copy.jpg) 
+ ![logo](https://github.com/EclipseCN/PhenoBERT/blob/main/img/logo_cut.jpg) 
 
 A novel tool for human clinical disease phenotype recognizing with deep learning.
 
