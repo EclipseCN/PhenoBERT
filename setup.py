@@ -30,5 +30,5 @@ setup(
 	packages=find_packages(where='PhenoBERT_src'),
 	include_package_data=True,
 	python_requires='>=3.6, <4',
-	install_requires=['lxml>=4.6.1', 'nltk>=3.5', 'prettytable>=1.0.1', 'fasttext>=0.9.2', 'pytorch>=1.3.1', 'scipy>=1.5.2', 'stanza>=1.1.1'],
+	install_requires=['lxml>=4.6.1', 'nltk>=3.5', 'prettytable>=1.0.1', 'fasttext>=0.9.2', 'torch>=1.3.1', 'scipy>=1.5.2', 'stanza>=1.1.1'],
 )
