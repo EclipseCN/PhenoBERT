@@ -1,0 +1,54 @@
+[76::111]	HP_0002803 | congenital distal limb contractures
+[87::111]	HP_0005684 | distal limb contractures
+[94::111]	HP_0003121 | limb contractures
+[99::111]	HP_0001371 | contractures
+[168::197]	HP_0002803 | congenital joint contractures
+[179::197]	HP_0001371 | joint contractures
+[185::197]	HP_0001371 | contractures
+[225::239]	HP_0000005 | familial cases
+[247::261]	HP_0001420 | isolated cases
+[294::308]	HP_0001390 | arthrogryposis
+[335::356]	HP_0005684 | distal arthrogryposis
+[342::356]	HP_0001390 | arthrogryposis
+[404::422]	HP_0000006 | autosomal dominant
+[404::434]	HP_0000006 | autosomal dominant inheritance
+[414::434]	HP_0000006 | dominant inheritance
+[414::422]	HP_0000006 | dominant
+[436::458]	HP_0001188 | tightly clenched fists
+[474::502]	HP_0010557 | medially overlapping fingers
+[483::502]	HP_0010557 | overlapping fingers
+[504::519]	HP_0001193 | ulnar deviation
+[525::538]	HP_0012385 | camptodactyly
+[554::581]	HP_0005656 | positional foot deformities
+[565::581]	HP_0001760 | foot deformities
+[583::595]	HP_0001371 | Contractures
+[622::630]	HP_0003813 | variable
+[656::674]	HP_0002012 | visceral anomalies
+[720::763]	HP_0003822 | intrafamilial and interfamilial variability
+[738::763]	HP_0003812 | interfamilial variability
+[752::763]	HP_0003812 | variability
+[799::818]	HP_0005684 | distal contractures
+[806::818]	HP_0001371 | contractures
+[890::911]	HP_0005684 | distal arthrogryposis
+[897::911]	HP_0001390 | arthrogryposis
+[949::961]	HP_0000175 | cleft palate
+[963::972]	HP_0100333 | cleft lip
+[974::986]	HP_0000171 | small tongue
+[988::995]	HP_0000211 | trismus
+[997::1003]	HP_0000508 | ptosis
+[1005::1021]	HP_0000286 | epicanthal folds
+[1023::1034]	HP_0000563 | keratoconus
+[1036::1049]	HP_0004322 | short stature
+[1051::1060]	HP_0002650 | scoliosis
+[1064::1084]	HP_0001155 | unique hand position
+[1362::1381]	HP_0005684 | distal contractures
+[1369::1381]	HP_0001371 | contractures
+[1386::1416]	HP_0000006 | autosomal dominant inheritance
+[1386::1404]	HP_0000006 | autosomal dominant
+[1396::1416]	HP_0000006 | dominant inheritance
+[1396::1404]	HP_0000006 | dominant
+[1452::1459]	HP_0000211 | trismus
+[1467::1480]	HP_0012385 | camptodactyly
+[1502::1529]	HP_0001166 | contractural arachnodactyly
+[1515::1529]	HP_0001166 | arachnodactyly
+[1544::1557]	HP_0012385 | camptodactyly

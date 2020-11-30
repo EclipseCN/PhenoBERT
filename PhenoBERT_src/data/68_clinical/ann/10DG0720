@@ -1,0 +1,30 @@
+49	74	assisted vaginal delivery	HP:0011412
+294	303	tachypnea	HP:0002789
+305	317	irritability	HP:0000737
+322	358	spastic movements of the upper limbs	HP:0006986	Related
+390	402	hypocalcemia	HP:0002901
+407	421	hypomagnesemia	HP:0002917
+484	497	weak suckling	HP:0011968	Related
+502	520	feeding difficulty	HP:0011968
+580	591	motor delay	HP:0001270
+642	668	global developmental delay	HP:0001263
+1146	1165	congenital glaucoma	HP:0008007
+1249	1259	strabismus	HP:0000486
+1261	1271	hypertonia	HP:0001276
+1276	1285	flat feet	HP:0001763
+1546	1609	periventricular white matter changes	HP:0002518
+1563	1609	thalamic white matter changes	HP:0002500	Related
+1576	1609	perirolandic white matter changes	HP:0002500	Related
+1650	1692	increased myoinositol in the left thalamus	HP:0025460
+1702	1709	gliosis	HP:0002171
+1738	1779	TSH has been persistently mildly elevated	HP:0002925
+1836	1854	brain malformation	HP:0012443
+2123	2130	seizure	HP:0001250
+2157	2165	seizures	HP:0001250
+2213	2241	profound developmental delay	HP:0012736
+2389	2401	microcephaly	HP:0000252
+2403	2416	brachycephaly	HP:0000248
+2418	2438	upturned ear lobules	HP:0009909
+2443	2453	hypertonia	HP:0001276
+2630	2648	cortical dysplasia	HP:0002539
+2677	2701	partial seizure activity	HP:0007359

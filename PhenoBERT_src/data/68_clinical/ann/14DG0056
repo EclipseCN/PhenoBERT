@@ -1,0 +1,33 @@
+62	80	congenital stridor	HP:0004886
+97	107	hypertonia	HP:0001276
+153	181	poor weight gain since birth	HP:0001508
+249	275	global developmental delay	HP:0001263
+343	365	prolonged grasp reflex	HP:0030903
+597	607	hypertonia	HP:0001276
+694	712	nonexpressive face	HP:0000298	Related
+708	736	face with subtle dysmorphism	HP:0001999
+741	784	mild positional deformity of the chest wall	HP:0000765	Related
+988	1020	hypertonia affecting upper limbs	HP:0200049
+1047	1060	hyperreflexia	HP:0001347
+1071	1077	clonus	HP:0002169	Neg
+1247	1261	fetal distress	HP:0025116
+1336	1358	respiratory difficulty	HP:0002098
+1534	1571	very small anterior fontanel at birth	HP:0000237
+1726	1735	pneumonia	HP:0002090
+1740	1746	sepsis	HP:0100806
+1924	1937	hypertelorism	HP:0000316
+1939	1965	high nasal bridge	HP:0000426
+1948	1965	wide nasal bridge	HP:0000431
+1967	1979	micrognathia	HP:0000347
+1981	1993	glossoptosis	HP:0000162
+1995	2007	cleft palate	HP:0000175
+2009	2046	long fingers	HP:0100807
+2014	2046	thin fingers	HP:0001238
+2023	2046	hyperextensible fingers	HP:0001187
+2051	2060	hypotonia	HP:0001290
+2125	2163	diffuse white matter T2 hyperintensity	HP:0030890
+2165	2204	skeletal survey showed 11 pairs of ribs	HP:0000878
+2390	2403	hypertelorism	HP:0000316
+2405	2417	micrognathia	HP:0000347
+2419	2447	very small anterior fontanel	HP:0000237
+2516	2536	respiratory distress	HP:0002098

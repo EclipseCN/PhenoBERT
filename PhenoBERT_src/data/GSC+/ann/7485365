@@ -1,0 +1,31 @@
+[16::36]	HP_0000284 | ocular abnormalities
+[75::92]	HP_0006746 | neurofibromatosis
+[255::272]	HP_0006746 | neurofibromatosis
+[371::379]	HP_0003745 | sporadic
+[380::397]	HP_0006746 | neurofibromatosis
+[663::683]	HP_0000284 | ocular abnormalities
+[689::757]	HP_0007787 | posterior subcapsular or capsular, cortical, or mixed lens opacities
+[714::757]	HP_0100020 | capsular, cortical, or mixed lens opacities
+[724::757]	HP_0100019 | cortical, or mixed lens opacities
+[743::757]	HP_0000518 | lens opacities
+[790::807]	HP_0006746 | neurofibromatosis
+[814::832]	HP_0009594 | retinal hamartomas
+[1048::1057]	HP_0000518 | cataracts
+[1131::1140]	HP_0000518 | cataracts
+[1182::1209]	HP_0001263 | developmental abnormalities
+[1196::1220]	HP_0000478 | abnormalities of the eye
+[1244::1253]	HP_0011463 | childhood
+[1257::1268]	HP_0011462 | adolescence
+[1345::1365]	HP_0000284 | ocular abnormalities
+[1381::1398]	HP_0006746 | neurofibromatosis
+[1412::1421]	HP_0000518 | cataracts
+[1423::1441]	HP_0009594 | retinal hamartomas
+[1447::1468]	HP_0006860 | ocular motor deficits
+[1621::1638]	HP_0006746 | neurofibromatosis
+[1655::1663]	HP_0000518 | cataract
+[1692::1709]	HP_0006746 | neurofibromatosis
+[1728::1770]	HP_0007787 | posterior subcapsular or capsular cataract
+[1753::1770]	HP_0100017 | capsular cataract
+[1762::1770]	HP_0000518 | cataract
+[1775::1792]	HP_0100019 | cortical cataract
+[1784::1792]	HP_0000518 | cataract

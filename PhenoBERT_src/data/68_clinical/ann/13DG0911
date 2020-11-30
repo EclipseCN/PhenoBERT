@@ -1,0 +1,22 @@
+27	44	psychomotor delay	HP:0001263
+46	64	brain malformation	HP:0012443
+69	77	epilepsy	HP:0001250
+174	188	gestational DM	HP:0009800	Related
+305	397	seizures described as tonic clonic with rolling of the eyes	HP:0001250
+440	473	eegs showed multifocal discharges	HP:0010841
+502	528	global developmental delay	HP:0001263
+612	643	speech is significantly delayed	HP:0002167
+749	768	aggressive behavior	HP:0000718
+930	943	short stature	HP:0004322
+945	952	obesity	HP:0001513
+954	967	hypertelorism	HP:0000316
+972	994	depressed nasal bridge	HP:0005280
+1105	1137	hyperreflexia in the lower limbs	HP:0002395
+1139	1185	brain mri revealed agenesis of corpus callosum	HP:0001274
+1201	1213	colpocephaly	HP:0030048
+1236	1261	showed spina bifida at l5	HP:0004601
+1243	1299	spina bifida at two sacral vertebrae	HP:0008455	Related
+1345	1359	ectopic kidney	HP:0000086
+1446	1460	hydronephrosis	HP:0000126
+1486	1506	secondary amenorrhea	HP:0000869
+1518	1545	bicornuate unicollis uterus	HP:0000813
