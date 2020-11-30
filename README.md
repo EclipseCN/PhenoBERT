@@ -3,7 +3,7 @@
 
 A novel tool for human clinical disease phenotype recognizing with deep learning.
 
-[![Build Status](https://travis-ci.com/EclipseCN/PhenoBERT.svg?branch=main)](https://travis-ci.com/EclipseCN/PhenoBERT)
+[![Build Status](https://travis-ci.com/EclipseCN/PhenoBERT.svg?branch=main)](https://travis-ci.com/EclipseCN/PhenoBERT)![PyPI](https://img.shields.io/pypi/v/phenobert)
 
 ### What is PhenoBERT?
 
