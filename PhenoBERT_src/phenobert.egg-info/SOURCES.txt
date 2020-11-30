@@ -1,7 +1,0 @@
-README.md
-setup.py
-PhenoBERT_src/phenobert.egg-info/PKG-INFO
-PhenoBERT_src/phenobert.egg-info/SOURCES.txt
-PhenoBERT_src/phenobert.egg-info/dependency_links.txt
-PhenoBERT_src/phenobert.egg-info/requires.txt
-PhenoBERT_src/phenobert.egg-info/top_level.txt
