@@ -16,6 +16,8 @@ GSCp_ann_path = "../data/GSC+/ann"
 fasttext_model_path = "../embeddings/pmc_model_new.bin"
 stopwords_file_path = "../data/stopwords.txt"
 num2word_file_path = "../data/NUM.txt"
+cnn_model_path = "../models/HPOModel_H/model_layer1.pkl"
+bert_model_path = "../models/bert_model_max_triple.pkl"
 device = torch.device("cuda:0" if torch.cuda.is_available() else torch.device("cpu"))
 
 
@@ -128,7 +130,12 @@ class PhraseDataSet4predict(Dataset):
         self.embedding_dim = self.fasttext_model.get_dimension()
 
         for phrase_item in phrase_list:
-            p_phrase = processStr(phrase_item.toString())
+            if isinstance(phrase_item, PhraseItem):
+                p_phrase = processStr(phrase_item.toString())
+            elif isinstance(phrase_item, str):
+                p_phrase = processStr(phrase_item)
+            else:
+                p_phrase = ""
             if len(p_phrase) > 0:
                 self.phrase_list.append(phrase_item)
                 self.data.append(p_phrase)
@@ -155,7 +162,12 @@ def PhraseDataSet4predictFunc(phrase_item, fasttext_model, max_seq_len=30):
     :param max_seq_len:
     :return:
     """
-    p_phrase = processStr(phrase_item.toString())
+    if isinstance(phrase_item, PhraseItem):
+        p_phrase = processStr(phrase_item.toString())
+    elif isinstance(phrase_item, str):
+        p_phrase = processStr(phrase_item)
+    else:
+        p_phrase = ""
     if len(p_phrase) == 0:
         return None
     data = np.concatenate([fasttext_model.get_word_vector(word).reshape(1, -1) for word in p_phrase])
@@ -1110,14 +1122,17 @@ def annotate_phrases(text, phrases_list, hpo_tree, fasttext_model, cnn_model, be
     :param fasttext_model: fastText预训练模型
     :param cnn_model: Layer1的CNN预训练模型
     :param bert_model: 用于判断Sentence Match的预训练模型
-    :param output_file_path: 注释后的输出位置
+    :param output_file_path: 注释后的输出位置/返回字符串
     :param device: cpu or gpu
     :param use_step_3: 是否增加Sentence Match步骤
     :return: None
     """
 
     result_list = []
-    output_file = open(output_file_path, "w", encoding="utf-8")
+    if output_file_path is not None:
+        output_file = open(output_file_path, "w", encoding="utf-8")
+    else:
+        output_file = ""
 
     next_phrases_list = []
     for phrase_item in phrases_list:
@@ -1208,7 +1223,7 @@ def annotate_phrases(text, phrases_list, hpo_tree, fasttext_model, cnn_model, be
                 # 按升序排序
                 prediction = y.argsort().tolist()
                 scores_p = y.sort()[0]
-                # 挑选每个短语超过阈值的L1层的HPO，超过0.9的我们才认为是预测正确的L1层
+                # 挑选每个短语超过阈值的L1层的HPO，超过0.8的我们才认为是预测正确的L1层
                 Candidate_hpos = [
                     set([hpo_tree.getIdx2HPO_l1(prediction[idx1][idx2]) for idx2 in range(len(prediction[idx1])) if
                          scores_p[idx1][idx2] >= param1]) for idx1 in range(len(prediction))]
@@ -1267,8 +1282,18 @@ def annotate_phrases(text, phrases_list, hpo_tree, fasttext_model, cnn_model, be
 
         for item in result_list:
             if not item[0].no_flag:
-                output_file.write(f"{item[0].start_loc}\t{item[0].end_loc}\t{text[item[0].start_loc:item[0].end_loc]}\t{item[1]}\n")
+                if output_file_path is not None:
+                    output_file.write(f"{item[0].start_loc}\t{item[0].end_loc}\t{text[item[0].start_loc:item[0].end_loc]}\t{item[1]}\n")
+                else:
+                    output_file += f"{item[0].start_loc}\t{item[0].end_loc}\t{text[item[0].start_loc:item[0].end_loc]}\t{item[1]}\n"
             else:
-                output_file.write(f"{item[0].start_loc}\t{item[0].end_loc}\t{text[item[0].start_loc:item[0].end_loc]}\t{item[1]}\tNeg\n")
+                if output_file_path is not None:
+                    output_file.write(f"{item[0].start_loc}\t{item[0].end_loc}\t{text[item[0].start_loc:item[0].end_loc]}\t{item[1]}\tNeg\n")
+                else:
+                    output_file += f"{item[0].start_loc}\t{item[0].end_loc}\t{text[item[0].start_loc:item[0].end_loc]}\t{item[1]}\tNeg\n"
 
-        output_file.close()
+        if output_file_path is not None:
+            output_file.close()
+            return None
+        else:
+            return output_file
