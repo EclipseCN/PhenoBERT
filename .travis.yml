@@ -6,4 +6,4 @@ notifications:
 install:
   - pip install --quiet -e .
 script:
-  true
+  - python PhenoBERT_src/utils/travis_test.py
