@@ -1,0 +1,21 @@
+22	40	with bilateral cataract	HP:0000519
+42	68	global developmental delay	HP:0001263
+70	86	nephrocalcinosis	HP:0000121
+88	99	proteinuria	HP:0000093
+137	158	hepatic calcification	HP:0006559	Neg
+186	212	global developmental delay	HP:0001263
+375	390	sparse hair	HP:0008070
+392	401	fair hair	HP:0002286
+403	419	deep seated eyes	HP:0100886	Related
+421	431	small eyes	HP:0000568
+433	442	hypotonia	HP:0001290
+444	457	hyperreflexia	HP:0001347
+459	478	reduced muscle mass	HP:0003199
+643	696	mild asymmetrical dilation of both lateral ventricles	HP:0006956	Related
+704	719	central atrophy	HP:0007367	Related
+749	765	nephrocalcinosis	HP:0000121
+770	791	hepatic calcification	HP:0006559
+814	826	hypocalcemia	HP:0002901
+842	856	hypomagnesemia	HP:0002917
+871	887	hypophosphatemia	HP:0002148
+905	919	hypercalciuria	HP:0002150
