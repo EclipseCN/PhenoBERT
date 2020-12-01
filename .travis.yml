@@ -4,6 +4,7 @@ python:
 notifications:
   email: false
 install:
-  - pip install --quiet -e .
+  - pip install -r requirements.txt
+  - python setup.py
 script:
   - python phenobert/utils/travis_test.py
