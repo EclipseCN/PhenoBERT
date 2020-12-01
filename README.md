@@ -97,10 +97,10 @@ The most common usage is recognizing human clinical disease phenotype from free 
 
 Giving a set of text files, PhenoBERT will then annotate each of the text files and generate an annotation file with the same name in the target folder.
 
-Example use `PhenoBERT `:
+Example use `annotate.py `:
 
 ```shell
-./PhenoBERT -i DIR_IN -o DIR_OUT
+python annotate.py -i DIR_IN -o DIR_OUT
 ```
 
 Arguments: 
