@@ -188,6 +188,20 @@ Match
 
 #### GUI application
 
+For users who are not comfortable with command line tools, we also provide GUI annotation applications.
+
+Simply use 
+
+```shell
+python gui.py
+```
+
+Then you will get a visual interactive interface as shown in the figure below, in which the yellow highlighted dialog box will display the running status.
+
+
+
+![gui](C:\Users\56909\Documents\Python Scripts\lab_work\NER\project\PhenoBERT\phenobert\img\gui.png)
+
 
 
 ### Dataset
