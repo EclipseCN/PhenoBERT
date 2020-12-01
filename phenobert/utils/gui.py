@@ -65,9 +65,9 @@ class MY_GUI():
 
 def gui_start():
     init_window = Tk()
-    ZMJ_PORTAL = MY_GUI(init_window)
+    gui = MY_GUI(init_window)
 
-    ZMJ_PORTAL.set_init_window()
+    gui.set_init_window()
 
     init_window.mainloop()
 
