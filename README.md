@@ -190,6 +190,17 @@ Match
 
 
 
+### Dataset
+
+We provide here two corpus with annotations used in the evaluation (`phenobert/data`), which are currently publicly available due to privacy processing.
+
+| Dataset     | Num  | Description                                                  |
+| ----------- | ---- | ------------------------------------------------------------ |
+| GSC+        | 228  | Composed of 228 abstracts of biomedical literature (Lobo et al., 2017) |
+| 68_clinical | 68   | Study the clinical presentation of 68 real cases of intellectual disability (Anazi et al., 2017) |
+
+
+
 ### Train your own model
 
 For the convenience of some users who cannot log in to Google Drive or who want to customize training process for their selves.
