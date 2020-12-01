@@ -200,7 +200,7 @@ Then you will get a visual interactive interface as shown in the figure below, i
 
 
 
-![gui](https://github.com/EclipseCN/PhenoBERT/blob/main/phenobert/img/gui.png)
+![gui](https://github.com/EclipseCN/PhenoBERT/blob/main/phenobert/img/gui.gif)
 
 
 

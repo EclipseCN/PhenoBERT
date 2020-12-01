@@ -44,7 +44,7 @@ class MY_GUI():
     def annotate(self):
         self.result_data_Text.delete(1.0, END)
         self.log_data_Text.delete(1.0, END)
-        text = self.init_data_Text.get(1.0, END).strip().replace("\n", "").encode()
+        text = self.init_data_Text.get(1.0, END).strip().replace("\n", " ")
         if text:
             try:
                 res = annotate_text(str(text))
