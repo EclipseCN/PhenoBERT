@@ -200,7 +200,7 @@ Then you will get a visual interactive interface as shown in the figure below, i
 
 
 
-![gui](C:\Users\56909\Documents\Python Scripts\lab_work\NER\project\PhenoBERT\phenobert\img\gui.png)
+![gui](https://github.com/EclipseCN/PhenoBERT/blob/main/phenobert/img/gui.png)
 
 
 
