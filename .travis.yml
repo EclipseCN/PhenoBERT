@@ -1,9 +1,0 @@
-language: python
-python:
-  - 3.6.5
-notifications:
-  email: false
-install:
-  - pip install --quiet -e .
-script:
-  - python PhenoBERT_src/utils/travis_test.py
