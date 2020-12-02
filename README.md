@@ -211,7 +211,7 @@ We provide here two corpus with annotations used in the evaluation (`phenobert/d
 | Dataset     | Num  | Description                                                  |
 | ----------- | ---- | ------------------------------------------------------------ |
 | GSC+        | 228  | Composed of 228 abstracts of biomedical literature (Lobo et al., 2017) |
-| 68_clinical | 68   | Study the clinical presentation of 68 real cases of intellectual disability (Anazi et al., 2017) |
+| 68_clinical | 68   | Clinical description of 68 real cases in the intellectual disability study (Anazi et al., 2017) |
 
 
 
