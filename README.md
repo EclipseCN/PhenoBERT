@@ -50,7 +50,7 @@ cd PhenoBERT
 
 3. Install dependencies in the current Python3 environment.
 
-   Notice: we recommend using Python virtual environment to avoid confusion.
+   Notice: we recommend using Python virtual environment to avoid confusion. 
 
 ```shell
 pip install -r requirements.txt
@@ -72,9 +72,9 @@ We have prepared pre-trained [fastText](https://en.wikipedia.org/wiki/FastText) 
 
 | Directory Name | File Name | Description |
 | ---- | ------ | -------|
-| models/ | [HPOModel_H/](https://drive.google.com/drive/folders/1NriTyBqh3kxUWv1lrnYjWBpYu0F0hrCh?usp=sharing) | CNN hierarchical model file |
+| models/ | [HPOModel_H/](https://drive.google.com/drive/folders/1iILHHwj2-v5NSF_WOBX1roZ-yT1e1kFI?usp=sharing) | CNN hierarchical model file |
 |  | [bert_model_max_triple.pkl](https://drive.google.com/file/d/1AwRnaB5RruFUEdMkKohZmTlD4ILCkQ_z/view?usp=sharing) | BERT model file |
-| embeddings/ | [biobert_v1.1_pubmed/](https://drive.google.com/drive/folders/10lko9BpToUl3PlUWrYbFmNyVHxDX1xby?usp=sharing) | BERT embedding obtained from [BioBERT](https://github.com/dmis-lab/biobert) |
+| embeddings/ | [biobert_v1.1_pubmed/](https://drive.google.com/drive/folders/12zncflKG7hbzEjYFwGAk5KKVd3eRIKs7?usp=sharing) | BERT embedding obtained from [BioBERT](https://github.com/dmis-lab/biobert) |
 | | [fasttext_pubmed.bin](https://drive.google.com/file/d/1GFB3I46B50sDUHcSpu84jZKqJnIjc--B/view?usp=sharing) | fastText embedding trained on [pubmed](https://en.wikipedia.org/wiki/PubMed) |
 
 Once the download is complete, please put it in the corresponding folder for PhenoBERT to load.
