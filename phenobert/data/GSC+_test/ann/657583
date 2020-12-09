@@ -1,0 +1,19 @@
+[52::67]	HP_0000110 | renal dysplasia
+[156::182]	HP_0000356 | external ear malformations
+[165::182]	HP_0000598 | ear malformations
+[184::201]	HP_0009795 | cervical fistulae
+[203::221]	HP_0000410 | mixed hearing loss
+[226::241]	HP_0000077 | renal anomalies
+[312::327]	HP_0000077 | renal anomalies
+[372::384]	HP_0000365 | hearing loss
+[404::430]	HP_0000356 | external ear malformations
+[413::430]	HP_0000598 | ear malformations
+[441::449]	HP_0003813 | variable
+[580::598]	HP_0000006 | autosomal dominant
+[706::719]	HP_0000598 | ear dysplasia
+[720::736]	HP_0000110 | renal adysplasia
+[810::819]	HP_0009794 | branchial
+[810::838]	HP_0009794 | branchial arch malformations
+[895::908]	HP_0002009 | Potter facies
+[929::951]	HP_0000356 | auricular malformation
+[956::972]	HP_0000110 | renal adysplasia

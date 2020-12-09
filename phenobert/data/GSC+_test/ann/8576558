@@ -1,0 +1,18 @@
+[15::22]	HP_0001250 | seizure
+[109::126]	HP_0100022 | movement problems
+[195::210]	HP_0007087 | jerky movements
+[247::275]	HP_0002123 | myoclonic status epilepticus
+[312::328]	HP_0007359 | partial seizures
+[334::347]	HP_0000496 | eye deviation
+[352::360]	HP_0002013 | vomiting
+[382::391]	HP_0011463 | childhood
+[402::412]	HP_0001275 | epilepsies
+[420::428]	HP_0001250 | seizures
+[433::465]	HP_0002353 | electroencephalographic patterns
+[535::549]	HP_0003680 | nonprogressive
+[535::589]	HP_0007030 | nonprogressive, age-dependent myoclonic encephalopathy
+[668::674]	HP_0001251 | ataxia
+[751::760]	HP_0001336 | myoclonic
+[751::779]	HP_0002123 | myoclonic status epilepticus
+[824::842]	HP_0100022 | abnormal movements
+[824::865]	HP_0007087 | abnormal movements, namely the jerky ones

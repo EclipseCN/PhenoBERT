@@ -15,12 +15,12 @@ In GSC+(Lobo et al., 2017) dataset:
 
 | **Method**          | Precision |Recall|F1-score| **Set  Similarity** |
 | ------------------- | -------------- | -------------- | -------------- | ------------- |
-| NCBO  Annotator | 75.22          | 49.05               | 59.38         | 72.22         |
-| NeuralCR        | 72.51          | 58.71               | 64.88         | 78.93         |
-| Clinphen        | 55.26          | 38.13               | 45.12         | 55.86         |
-| MetaMapLite     | 67.21          | 44.25               | 53.37         | 67.07         |
-| PhenoPro-NLP    | 14.47          | 53.32               | 22.76         | 34.64         |
-| **PhenoBERT**    | **77.97**      | **60.70**           | **68.26** | **82.41** |
+| NCBO  Annotator | 66.40     | 47.74           | 55.55     | 72.00     |
+| NeuralCR        | 70.98      | 63.28           | 66.91     | 79.07     |
+| Clinphen        | 49.42     | 37.70           | 42.77     | 55.49     |
+| MetaMapLite     | 63.04      | 45.49           | 52.84     | 66.62     |
+| Doc2hpo | 69.79     | 44.62           | 54.44     | 69.70     |
+| **PhenoBERT**    | **76.20**  | **65.19**       | **70.27** | **82.57** |
 
 
 
@@ -226,7 +226,7 @@ We provide here two corpus with annotations used in the evaluation (`phenobert/d
 
 | Dataset     | Num  | Description                                                  |
 | ----------- | ---- | ------------------------------------------------------------ |
-| GSC+        | 228  | Composed of 228 abstracts of biomedical literature (Lobo et al., 2017) |
+| GSC+        | 228  | Composed of 228 abstracts of biomedical literature (Lobo et al., 2017) in raw format |
 | 68_clinical | 68   | Clinical description of 68 real cases in the intellectual disability study (Anazi et al., 2017) |
 
 
