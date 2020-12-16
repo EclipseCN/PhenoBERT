@@ -60,8 +60,13 @@ for true_hpo_name in HPO2phrase.keys():
     for hpo_name in Candidate_hpo_set_f_d:
         tmp.extend(HPO2phrase[hpo_name])
     sub_pos_phrases_d.extend(tmp)
+
+    sub_pos_phrases.extend(sub_pos_phrases_d)
+    sub_fa_phrases_set = set(sub_pos_phrases)
+
+    # 加入了祖先
     part_pos_lst.extend(
-        [random.choice(HPO2phrase[true_hpo_name]) + "::" + item + "\t1\n" for item in sub_pos_phrases_d if
+        [random.choice(HPO2phrase[true_hpo_name]) + "::" + item + "\t1\n" for item in sub_fa_phrases_set if
          not containNum(item)])
 
     # 子代关系
@@ -128,7 +133,7 @@ for hpo_name in HPO2phrase:
 
 # 78968
 print("we have %d positive entries." % len(pos_lst))
-# 140066/48034
+# 140066
 print("we have %d part positive entries." % len(part_pos_lst))
 # 174602
 print("we have %d part/total negative entries." % len(total_neg_lst))
