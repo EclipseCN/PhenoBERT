@@ -3,7 +3,7 @@ import torch
 import stanza
 import fasttext
 import warnings
-from util import process_text2phrases, annotate_phrases, ModelLoader, HPOTree, PhraseDataSet4predict, PhraseDataSet4predictFunc
+from util import process_text2phrases, annotate_phrases, ModelLoader, HPOTree, PhraseDataSet4predict, PhraseDataSet4predictFunc, produceCandidateTriple
 from util import cnn_model_path, bert_model_path, fasttext_model_path
 from model import device
 from torch.utils.data import DataLoader
@@ -64,10 +64,14 @@ def get_L1_HPO_term(phrases_list, param1=0.8):
     return res
 
 
-def get_most_related_HPO_term(phrases_list, item=3, param1=0.8, param2=0):
+def get_most_related_HPO_term(phrases_list, param1=0.8, param2=0.6, param3=0.9):
     """
-    Given a list of phrases, give a list of HPOs that are most similar to these phrases.
-    :param phrases_list: list of phrases
+    给定短语列表，给出与这些短语最相似的HPO列表
+    :param phrases_list:
+    :param param1:
+    :param param2:
+    :param param3:
+    :return:
     """
     first_step = get_L1_HPO_term(phrases_list, param1)
     res = []
@@ -88,21 +92,33 @@ def get_most_related_HPO_term(phrases_list, item=3, param1=0.8, param2=0):
         sub_model.eval()
         total_model.append(sub_model)
     for i, j in first_step:
+        flag = True
         if len(j) > 0 and "None" not in j:
-            Candidate_hpos_sub = []
+            Candidate_hpos_sub = set()
             for l1_hpo in j:
                 l1_idx = hpo_tree.getHPO2idx_l1(l1_hpo)
                 y_sub = total_model[l1_idx](PhraseDataSet4predictFunc(i, fasttext_model)).squeeze()
-                prediction_sub = y_sub.topk(item)[1].tolist()
-                scores_p_sub = torch.softmax(y_sub, dim=0).topk(item)[0].tolist()
-                Candidate_hpos_sub.extend(
-                    [[total_idx2hpo[l1_idx][prediction_sub[idx]], scores_p_sub[idx]] for idx in
-                     range(len(prediction_sub)) if scores_p_sub[idx] >= param2])
-            Candidate_hpos_sub.sort(key=lambda x: x[1], reverse=True)
-            if len(Candidate_hpos_sub) != 0:
-                res.append([i, [i[0] for i in Candidate_hpos_sub[:item]]])
-            else:
-                res.append([i, "None"])
+                if y_sub.size(0) > 10:
+                    prediction_sub = y_sub.topk(10)[1].tolist()
+                    scores_p_sub = torch.softmax(y_sub, dim=0).topk(10)[0].tolist()
+                else:
+                    prediction_sub = y_sub.topk(y_sub.size(0))[1].tolist()
+                    scores_p_sub = torch.softmax(y_sub, dim=0).topk(y_sub.size(0))[0].tolist()
+                Candidate_hpos_sub.update(
+                    [total_idx2hpo[l1_idx][prediction_sub[idx]] for idx in range(len(prediction_sub)) if
+                     scores_p_sub[idx] >= param2])
+            if len(Candidate_hpos_sub) != 0 and "None" not in Candidate_hpos_sub:
+                Candidate_hpos_sub = list(Candidate_hpos_sub)
+                candidate_phrase = [hpo_tree.getNameByHPO(item) for item in Candidate_hpos_sub]
+                raw_phrase = i
+                # print(raw_phrase, candidate_phrase)
+                ans_hpo, score, class_num = produceCandidateTriple(raw_phrase, candidate_phrase, bert_model, hpo_tree,
+                                                                   Candidate_hpos_sub, param3)
+                if ans_hpo != "None":
+                    res.append([i, ans_hpo])
+                    flag = False
+        if flag:
+            res.append([i, "None"])
     return res
 
 

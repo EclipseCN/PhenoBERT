@@ -185,7 +185,7 @@ print(get_most_related_HPO_term(["cardiac hypertrophy", "renal disease"]))
 Output:
 
 ```shell
-[['cardiac hypertrophy', ['HP:0001714', 'HP:0031319', 'HP:0001627']], ['renal disease', ['HP:0000112', 'HP:0012211', 'HP:0000077']]]
+[['cardiac hypertrophy', 'None'], ['renal disease', 'HP:0000112']]
 ```
 
 4. determine if two phrases match
