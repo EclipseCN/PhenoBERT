@@ -852,7 +852,7 @@ def processStr(string):
     :return:
     """
     string = strip_accents(string.lower())
-    string = re.sub("[-_\"\'\\\\\r\n\t‘’]", " ", string)
+    string = re.sub("[-_\"\'\\\\\t\r\n‘’]", " ", string)
     all_text = string.strip().split()
     return all_text
 
@@ -1012,8 +1012,8 @@ def process_text2phrases(text, clinical_ner_model):
     stopwords = getStopWords()
     # 将文本处理成正常的小写形式
     text = strip_accents(text.lower())
-    # 对于分段也替换为空格，后续依次作为原始自由文本
-    text = re.sub("[-_\"\'\\\\\r\n\t‘’]", " ", text)
+    # 对于换行符替换为空格，后续作为分割词
+    text = re.sub("[-_\"\'\\\\\t\r\n‘’]", " ", text)
 
     clinical_docs = clinical_ner_model(text)
     sub_sentences = []
