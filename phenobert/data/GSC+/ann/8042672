@@ -1,13 +1,11 @@
 [11::31]	HP_0002671 | basal cell carcinoma
 [54::72]	HP_0000006 | autosomal dominant
-[64::72]	HP_0000006 | dominant
 [99::107]	HP_0003813 | variable
 [99::120]	HP_0003828 | variable expressivity
 [358::379]	HP_0002671 | basal cell carcinomas
 [489::498]	HP_0010603 | jaw cysts
 [500::526]	HP_0010612 | palmar and/or plantar pits
 [514::526]	HP_0010612 | plantar pits
-[522::526]	HP_0004467 | pits
 [532::565]	HP_0005462 | calcification of the falx cerebri
 [624::645]	HP_0002671 | basal cell carcinomas
 [723::744]	HP_0002671 | basal cell carcinomas

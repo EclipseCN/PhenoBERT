@@ -9,12 +9,8 @@
 [323::345]	HP_0005473 | inculomalleolar fusion
 [400::409]	HP_0011463 | childhood
 [421::447]	HP_0002574 | episodes of abdominal pain
-[433::447]	HP_0002027 | abdominal pain
-[443::447]	HP_0012531 | pain
 [500::505]	HP_0000969 | edema
 [669::693]	HP_0001256 | mildly mentally retarded
-[676::693]	HP_0001249 | mentally retarded
-[685::693]	HP_0001263 | retarded
 [746::759]	HP_0004322 | short stature
 [778::797]	HP_0001545 | antepositioned anus
 [799::816]	HP_0009944 | bifid right thumb

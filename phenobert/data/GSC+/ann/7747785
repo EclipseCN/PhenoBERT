@@ -7,7 +7,6 @@
 [336::359]	HP_0000383 | supra-auricular defects
 [506::529]	HP_0000951 | abnormal overlying skin
 [535::558]	HP_0004467 | draining sinus fistulae
-[544::558]	HP_0009794 | sinus fistulae
 [560::579]	HP_0000792 | Renal malformations
 [598::649]	HP_0002564 | congenital heart and central nervous system defects
 [619::649]	HP_0007319 | central nervous system defects
@@ -17,5 +16,3 @@
 [750::778]	HP_0000364 | hearing, and speech problems
 [763::778]	HP_0002116 | speech problems
 [791::821]	HP_0000006 | Autosomal dominant inheritance
-[801::809]	HP_0000006 | dominant
-[801::821]	HP_0000006 | dominant inheritance

@@ -1,17 +1,10 @@
 [51::68]	HP_0006746 | neurofibromatosis
 [96::116]	HP_0009735 | spinal neurofibromas
-[103::116]	HP_0001067 | neurofibromas
 [121::145]	HP_0000957 | café au lait spots (CLS)
-[121::139]	HP_0000957 | café au lait spots
 [158::178]	HP_0009735 | spinal neurofibromas
-[159::178]	HP_0009735 | pinal neurofibromas
-[165::178]	HP_0001067 | neurofibromas
 [227::243]	HP_0008069 | cutaneous tumors
 [237::243]	HP_0002664 | tumors
 [245::258]	HP_0009737 | Lisch nodules
 [263::278]	HP_0009588 | acoustic tumors
 [272::278]	HP_0002664 | tumors
 [355::385]	HP_0000006 | autosomal dominant inheritance
-[355::373]	HP_0000006 | autosomal dominant
-[365::373]	HP_0000006 | dominant
-[365::385]	HP_0000006 | dominant inheritance

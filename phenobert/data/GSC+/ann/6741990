@@ -9,7 +9,5 @@
 [575::590]	HP_0000118 | anomalies of other internal organs
 [611::629]	HP_0000006 | autosomal dominant
 [611::635]	HP_0000006 | autosomal dominant trait
-[621::635]	HP_0000006 | dominant trait
-[621::629]	HP_0000006 | dominant
 [670::677]	HP_0003745 | de novo
 [670::686]	HP_0003745 | de novo mutation

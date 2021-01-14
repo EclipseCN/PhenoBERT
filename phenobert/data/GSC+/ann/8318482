@@ -2,12 +2,10 @@
 [185::224]	HP_0007787 | posterior subcapsular/capsular cataract
 [195::224]	HP_0000523 | subcapsular/capsular cataract
 [207::224]	HP_0100017 | capsular cataract
-[216::224]	HP_0000518 | cataract
 [229::246]	HP_0006746 | neurofibromatosis
 [250::290]	HP_0007787 | Posterior subcapsular/capsular cataracts
 [260::290]	HP_0000523 | subcapsular/capsular cataracts
 [272::290]	HP_0100017 | capsular cataracts
-[281::290]	HP_0000518 | cataracts
 [437::471]	HP_0100019 | peripheral cortical lens opacities
 [457::471]	HP_0000518 | lens opacities
 [477::494]	HP_0006746 | neurofibromatosis
@@ -20,11 +18,9 @@
 [788::828]	HP_0007787 | posterior subcapsular/capsular cataracts
 [798::828]	HP_0000523 | subcapsular/capsular cataracts
 [810::828]	HP_0100017 | capsular cataracts
-[819::828]	HP_0000518 | cataracts
 [870::903]	HP_0007876 | cortical cataracts of early onset
 [879::888]	HP_0000518 | cataracts
 [920::960]	HP_0007787 | posterior subcapsular/capsular cataracts
 [930::960]	HP_0000523 | subcapsular/capsular cataracts
 [942::960]	HP_0100017 | capsular cataracts
-[951::960]	HP_0000518 | cataracts
 [992::1009]	HP_0006746 | neurofibromatosis

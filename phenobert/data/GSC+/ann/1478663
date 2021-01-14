@@ -1,12 +1,9 @@
 [32::59]	HP_0000006 | autosomal dominant disorder
 [32::50]	HP_0000006 | autosomal dominant
-[42::50]	HP_0000006 | dominant
 [92::107]	HP_0000404 | profoundly deaf
-[103::107]	HP_0000404 | deaf
 [133::151]	HP_0000365 | hearing impairment
 [178::195]	HP_0000394 | lop-ear deformity
 [197::214]	HP_0004467 | preauricular pits
-[210::214]	HP_0004467 | pits
 [216::231]	HP_0009794 | branchial cleft
 [216::244]	HP_0100272 | branchial cleft sinus tracts
 [250::265]	HP_0000077 | renal anomalies

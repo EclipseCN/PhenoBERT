@@ -1,13 +1,7 @@
 [67::92]	HP_0002187 | severe mental retardation
-[74::92]	HP_0001249 | mental retardation
-[81::92]	HP_0001249 | retardation
 [94::102]	HP_0001250 | epilepsy
 [104::132]	HP_0001251 | puppet-like ataxic movements
-[116::122]	HP_0001251 | ataxic
-[116::132]	HP_0001251 | ataxic movements
 [134::152]	HP_0002258 | microbrachycephaly
 [154::165]	HP_0000303 | prognathism
 [167::184]	HP_0010808 | tongue protrusion
 [190::225]	HP_0000748 | inappropriate paroxysms of laughter
-[204::225]	HP_0000749 | paroxysms of laughter
-[217::225]	HP_0000748 | laughter

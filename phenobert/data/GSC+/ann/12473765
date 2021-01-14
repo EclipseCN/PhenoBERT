@@ -1,10 +1,4 @@
 [46::63]	HP_0006746 | neurofibromatosis
 [221::253]	HP_0009589 | bilateral vestibular schwannomas
-[231::253]	HP_0009588 | vestibular schwannomas
-[242::253]	HP_0100008 | schwannomas
 [482::514]	HP_0009589 | bilateral vestibular schwannomas
-[492::514]	HP_0009588 | vestibular schwannomas
-[503::514]	HP_0100008 | schwannomas
 [1268::1300]	HP_0009589 | bilateral vestibular schwannomas
-[1278::1300]	HP_0009588 | vestibular schwannomas
-[1289::1300]	HP_0100008 | schwannomas

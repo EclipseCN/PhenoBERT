@@ -1,9 +1,6 @@
 [40::58]	HP_0000006 | autosomal dominant
-[50::58]	HP_0000006 | dominant
 [72::96]	HP_0009794 | branchial arch anomalies
-[72::81]	HP_0009794 | branchial
 [98::106]	HP_0000404 | deafness
 [111::126]	HP_0000110 | renal dysplasia
 [178::221]	HP_0003822 | intrafamilial and interfamilial variability
 [196::221]	HP_0003812 | interfamilial variability
-[210::221]	HP_0003812 | variability

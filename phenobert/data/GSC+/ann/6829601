@@ -1,12 +1,7 @@
 [56::86]	HP_0002004 | unusual craniofacial anomalies
-[64::86]	HP_0002260 | craniofacial anomalies
 [101::132]	HP_0009794 | hemangiomatous branchial clefts
-[116::125]	HP_0009794 | branchial
-[116::132]	HP_0009794 | branchial clefts
-[126::132]	HP_0009794 | clefts
 [134::150]	HP_0000159 | lip pseudoclefts
 [166::191]	HP_0002004 | unusual facial appearance
-[174::191]	HP_0001999 | facial appearance
 [217::231]	HP_0000568 | microphthalmia
 [256::285]	HP_0000579 | nasolacrimal duct obstruction
 [300::308]	HP_0003745 | sporadic

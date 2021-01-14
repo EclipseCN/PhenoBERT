@@ -15,10 +15,8 @@
 [652::658]	HP_0002664 | tumors
 [788::794]	HP_0002664 | tumors
 [886::908]	HP_0009588 | vestibular schwannomas
-[897::908]	HP_0100008 | schwannomas
 [913::924]	HP_0002858 | meningiomas
 [1011::1027]	HP_0009593 | skin schwannomas
-[1016::1027]	HP_0100008 | schwannomas
 [1086::1097]	HP_0008069 | skin tumors
 [1091::1097]	HP_0002664 | tumors
 [1119::1136]	HP_0006746 | neurofibromatosis

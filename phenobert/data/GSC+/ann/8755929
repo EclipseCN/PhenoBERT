@@ -6,13 +6,10 @@
 [152::173]	HP_0001263 | developmental defects
 [241::301]	HP_0003822 | significant phenotypic variability within and among kindreds
 [253::275]	HP_0003812 | phenotypic variability
-[264::275]	HP_0003812 | variability
 [422::428]	HP_0002664 | tumors
 [474::480]	HP_0002664 | cancer
 [971::989]	HP_0001249 | mental retardation
-[978::989]	HP_0001249 | retardation
 [991::1014]	HP_0000405 | conductive hearing loss
-[1002::1014]	HP_0000365 | hearing loss
 [1020::1037]	HP_0001508 | failure to thrive
 [1230::1236]	HP_0002664 | tumors
 [1283::1292]	HP_0002664 | neoplasms

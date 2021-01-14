@@ -1,9 +1,6 @@
 [76::102]	HP_0001263 | global developmental delay
-[83::102]	HP_0001263 | developmental delay
 [104::110]	HP_0001251 | ataxia
 [112::143]	HP_0000749 | episodes of paroxysmal laughter
-[124::143]	HP_0000749 | paroxysmal laughter
-[135::143]	HP_0000748 | laughter
 [145::153]	HP_0001250 | seizures
 [159::171]	HP_0000252 | microcephaly
 [315::332]	HP_0001999 | facial appearance
@@ -13,8 +10,6 @@
 [404::420]	HP_0000182 | Tongue thrusting
 [436::453]	HP_0100022 | movement disorder
 [468::491]	HP_0002136 | wide based, ataxic gait
-[480::486]	HP_0001251 | ataxic
-[480::491]	HP_0002066 | ataxic gait
 [506::526]	HP_0002276 | jerky limb movements
 [531::552]	HP_0100023 | flapping of the hands
 [562::570]	HP_0003813 | variable

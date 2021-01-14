@@ -1,0 +1,25 @@
+[89::106]	HP_0006746 | neurofibromatosis
+[267::289]	HP_0009588 | vestibular schwannomas
+[278::289]	HP_0100008 | schwannomas
+[291::307]	HP_0009588 | acoustic neuroma
+[310::329]	HP_0100009 | cranial meningiomas
+[318::329]	HP_0002858 | meningiomas
+[334::348]	HP_0010302 | spinal tumours
+[341::348]	HP_0002664 | tumours
+[427::435]	HP_0000404 | deafness
+[485::493]	HP_0000404 | Deafness
+[513::521]	HP_0000360 | tinnitus
+[551::566]	HP_0001324 | muscle weakness
+[551::577]	HP_0003202 | muscle weakness or wasting
+[558::566]	HP_0001324 | weakness
+[653::661]	HP_0001250 | seizures
+[676::683]	HP_0002321 | vertigo
+[736::745]	HP_0000618 | blindness
+[827::845]	HP_0000957 | Café au lait spots
+[906::918]	HP_0008069 | Skin tumours
+[911::918]	HP_0002664 | tumours
+[1001::1013]	HP_0000518 | lens opacity
+[1017::1025]	HP_0000518 | cataract
+[1133::1150]	HP_0006746 | neurofibromatosis
+[1169::1193]	HP_0003813 | inter-family differences
+[1218::1224]	HP_0002664 | tumour

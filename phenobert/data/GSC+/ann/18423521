@@ -1,5 +1,4 @@
 [48::66]	HP_0000006 | autosomal-dominant
-[58::66]	HP_0000006 | dominant
 [67::79]	HP_0000175 | cleft palate
 [80::101]	HP_0002260 | craniofacial disorder
 [107::115]	HP_0003813 | variable
@@ -15,4 +14,3 @@
 [368::406]	HP_0000164 | ectodermal (dental and hair) anomalies
 [824::831]	HP_0003745 | de novo
 [1095::1116]	HP_0001425 | genetic heterogeneity
-[1103::1116]	HP_0001425 | heterogeneity

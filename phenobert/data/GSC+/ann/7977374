@@ -1,11 +1,8 @@
 [0::9]	HP_0001762 | Club foot
 [68::89]	HP_0005684 | Distal arthrogryposis
-[75::89]	HP_0001390 | arthrogryposis
 [127::147]	HP_0000006 | dominantly inherited
 [148::157]	HP_0001762 | club foot
 [586::605]	HP_0001425 | locus heterogeneity
-[592::605]	HP_0001425 | heterogeneity
 [624::646]	HP_0002803 | congenital contracture
-[635::646]	HP_0001371 | contracture
 [665::692]	HP_0005656 | positional foot deformities
 [676::692]	HP_0001760 | foot deformities

@@ -3,22 +3,18 @@
 [156::173]	HP_0006746 | neurofibromatosis
 [179::196]	HP_0006746 | neurofibromatosis
 [211::247]	HP_0009589 | bilateral acoustic neurofibromatosis
-[230::247]	HP_0006746 | neurofibromatosis
 [378::395]	HP_0006746 | neurofibromatosis
 [452::469]	HP_0006746 | neurofibromatosis
 [536::565]	HP_0100006 | central nervous system tumors
 [544::565]	HP_0004375 | nervous system tumors
 [559::565]	HP_0002664 | tumors
 [592::619]	HP_0009589 | bilateral acoustic neuromas
-[602::619]	HP_0009588 | acoustic neuromas
 [631::639]	HP_0002664 | tumors
 [633::639]	HP_0002664 | tumors
 [707::734]	HP_0009589 | bilateral acoustic neuromas
-[717::734]	HP_0009588 | acoustic neuromas
 [736::747]	HP_0002858 | Meningiomas
 [752::763]	HP_0002888 | ependymomas
 [791::805]	HP_0003593 | young patients
-[791::796]	HP_0003593 | young
 [842::859]	HP_0009588 | acoustic neuromas
 [888::926]	HP_0002514 | Intracranial nontumoral calcifications
 [1067::1084]	HP_0006746 | neurofibromatosis

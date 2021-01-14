@@ -1,14 +1,9 @@
 [23::35]	HP_0100024 | happy puppet
 [183::208]	HP_0002187 | severe mental retardation
-[190::208]	HP_0001249 | mental retardation
-[197::208]	HP_0001249 | retardation
 [210::228]	HP_0002133 | epileptic seizures
-[220::228]	HP_0001250 | seizures
 [230::281]	HP_0000749 | easily provoked and prolonged paroxysms of laughter
 [260::281]	HP_0000749 | paroxysms of laughter
-[273::281]	HP_0000748 | laughter
 [283::306]	HP_0001251 | atactic jerky movements
-[291::306]	HP_0007087 | jerky movements
 [308::317]	HP_0001252 | hypotonia
 [319::333]	HP_0000303 | large mandible
 [325::349]	HP_0000303 | mandible with prognathia

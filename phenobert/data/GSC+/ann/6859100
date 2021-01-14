@@ -6,9 +6,5 @@
 [122::148]	HP_0000073 | duplication of the ureters
 [152::172]	HP_0005580 | bifid renal pelvices
 [249::279]	HP_0000006 | autosomal dominant inheritance
-[249::267]	HP_0000006 | autosomal dominant
-[259::267]	HP_0000006 | dominant
-[259::279]	HP_0000006 | dominant inheritance
 [285::303]	HP_0003829 | reduced penetrance
 [308::329]	HP_0003828 | variable expressivity
-[308::316]	HP_0003813 | variable

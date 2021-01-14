@@ -1,8 +1,6 @@
 [37::45]	HP_0003813 | variable
 [47::65]	HP_0000006 | autosomal-dominant
-[57::65]	HP_0000006 | dominant
 [109::125]	HP_0009794 | branchial arches
-[109::118]	HP_0009794 | branchial
 [284::306]	HP_0009911 | temporal bone findings
 [315::334]	HP_0008586 | cochlear hypoplasia
 [375::410]	HP_0000359 | dilation of the vestibular aqueduct

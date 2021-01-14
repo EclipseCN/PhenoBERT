@@ -1,23 +1,14 @@
 [0::19]	HP_0009756 | Popliteal pterygium
-[10::19]	HP_0001059 | pterygium
 [45::72]	HP_0000006 | autosomal dominant disorder
 [45::63]	HP_0000006 | autosomal dominant
-[55::63]	HP_0000006 | dominant
 [189::206]	HP_0009756 | popliteal webbing
 [208::231]	HP_0000202 | cleft lip, cleft palate
-[208::217]	HP_0100333 | cleft lip
-[219::231]	HP_0000175 | cleft palate
 [233::247]	HP_0000196 | lower lip pits
-[239::247]	HP_0000196 | lip pits
-[243::247]	HP_0004467 | pits
 [249::259]	HP_0001159 | syndactyly
 [265::291]	HP_0000078 | genital and nail anomalies
 [277::291]	HP_0001597 | nail anomalies
 [370::383]	HP_0001420 | isolated case
 [548::566]	HP_0000006 | autosomal dominant
-[558::566]	HP_0000006 | dominant
 [583::599]	HP_0000202 | cleft lip/palate
 [583::592]	HP_0100333 | cleft lip
 [625::639]	HP_0000196 | lower lip pits
-[631::639]	HP_0000196 | lip pits
-[635::639]	HP_0004467 | pits

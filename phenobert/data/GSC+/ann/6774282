@@ -1,10 +1,8 @@
 [0::17]	HP_0006746 | Neurofibromatosis
 [209::226]	HP_0006746 | neurofibromatosis
 [232::258]	HP_0009589 | bilateral acoustic neuroma
-[242::258]	HP_0009588 | acoustic neuroma
 [265::292]	HP_0000006 | autosomal dominant disorder
 [265::283]	HP_0000006 | autosomal dominant
-[275::283]	HP_0000006 | dominant
 [346::358]	HP_0000951 | skin changes
 [391::408]	HP_0006746 | neurofibromatosis
 [589::606]	HP_0006746 | neurofibromatosis

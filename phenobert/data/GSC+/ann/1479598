@@ -1,9 +1,4 @@
 [39::56]	HP_0006746 | neurofibromatosis
 [375::405]	HP_0000006 | autosomal dominant inheritance
-[375::393]	HP_0000006 | autosomal dominant
-[385::405]	HP_0000006 | dominant inheritance
-[385::393]	HP_0000006 | dominant
 [892::924]	HP_0009589 | bilateral vestibular schwannomas
-[902::924]	HP_0009588 | vestibular schwannomas
-[913::924]	HP_0100008 | schwannomas
 [1004::1011]	HP_0002664 | tumours

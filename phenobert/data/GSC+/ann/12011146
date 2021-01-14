@@ -1,13 +1,9 @@
 [0::17]	HP_0006746 | Neurofibromatosis
 [79::111]	HP_0009590 | unilateral vestibular schwannoma
-[90::111]	HP_0009588 | vestibular schwannoma
-[101::111]	HP_0100008 | schwannoma
 [117::122]	HP_0003593 | young
 [117::126]	HP_0003593 | young age
 [179::196]	HP_0009589 | bilateral disease
 [276::308]	HP_0009590 | unilateral vestibular schwannoma
-[287::308]	HP_0009588 | vestibular schwannoma
-[298::308]	HP_0100008 | schwannoma
 [415::421]	HP_0002664 | tumour
 [555::561]	HP_0002664 | tumour
 [618::624]	HP_0002664 | tumour
@@ -17,13 +13,8 @@
 [947::964]	HP_0001442 | somatic mosaicism
 [1039::1050]	HP_0002858 | meningiomas
 [1106::1141]	HP_0009589 | contralateral vestibular schwannoma
-[1120::1141]	HP_0009588 | vestibular schwannoma
-[1131::1141]	HP_0100008 | schwannoma
 [1217::1238]	HP_0009588 | vestibular schwannoma
-[1228::1238]	HP_0100008 | schwannoma
 [1309::1342]	HP_0009590 | unilateral vestibular schwannomas
-[1320::1342]	HP_0009588 | vestibular schwannomas
-[1331::1342]	HP_0100008 | schwannomas
 [1376::1393]	HP_0009589 | bilateral disease
 [1433::1440]	HP_0002664 | tumours
 [1508::1514]	HP_0002664 | tumour

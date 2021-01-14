@@ -1,0 +1,20 @@
+[0::17]	HP_0006746 | Neurofibromatosis
+[37::55]	HP_0000006 | autosomal dominant
+[47::55]	HP_0000006 | dominant
+[101::123]	HP_0009588 | vestibular schwannomas
+[112::123]	HP_0100008 | schwannomas
+[128::140]	HP_0003008 | other tumors
+[134::140]	HP_0002664 | tumors
+[134::162]	HP_0004375 | tumors of the nervous system
+[174::204]	HP_0100009 | cranial and spinal meningiomas
+[186::204]	HP_0100010 | spinal meningiomas
+[193::204]	HP_0002858 | meningiomas
+[206::217]	HP_0100008 | schwannomas
+[223::234]	HP_0002888 | ependymomas
+[252::284]	HP_0009589 | bilateral vestibular schwannomas
+[262::284]	HP_0009588 | vestibular schwannomas
+[273::284]	HP_0100008 | schwannomas
+[318::337]	HP_0000951 | Skin manifestations
+[362::379]	HP_0006746 | neurofibromatosis
+[1056::1077]	HP_0001425 | genetic heterogeneity
+[1064::1077]	HP_0001425 | heterogeneity

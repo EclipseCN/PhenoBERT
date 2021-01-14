@@ -1,11 +1,9 @@
 [35::54]	HP_0100568 | endocrine neoplasia
-[45::54]	HP_0002664 | neoplasia
 [74::98]	HP_0000951 | cutaneous manifestations
 [338::350]	HP_0011355 | skin lesions
 [369::392]	HP_0000951 | cutaneous abnormalities
 [602::614]	HP_0011355 | skin lesions
 [648::668]	HP_0009720 | facial angiofibromas
-[655::668]	HP_0010615 | angiofibromas
 [763::776]	HP_0010615 | Angiofibromas
 [871::883]	HP_0000951 | Collagenomas
 [939::959]	HP_0000957 | cafe au lait macules

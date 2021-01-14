@@ -1,15 +1,11 @@
 [96::113]	HP_0006746 | neurofibromatosis
 [282::304]	HP_0009588 | vestibular schwannomas
-[293::304]	HP_0100008 | schwannomas
 [306::322]	HP_0009588 | acoustic neuroma
 [325::344]	HP_0100009 | cranial meningiomas
-[333::344]	HP_0002858 | meningiomas
 [350::364]	HP_0010302 | spinal tumours
-[357::364]	HP_0002664 | tumours
 [623::635]	HP_0000518 | lens opacity
 [639::647]	HP_0000518 | cataract
 [692::717]	HP_0003822 | interfamilial differences
 [742::748]	HP_0002664 | tumour
 [765::787]	HP_0009588 | Vestibular schwannomas
-[776::787]	HP_0100008 | schwannomas
 [1036::1049]	HP_0001425 | heterogeneity

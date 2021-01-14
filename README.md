@@ -1,7 +1,7 @@
 # PhenoBERT
  ![logo](https://github.com/EclipseCN/PhenoBERT/blob/main/phenobert/img/logo.jpg) 
 
-A knowledge-enhanced tool for recognizing human clinical disease phenotype with deep-learning.
+A knowledge-enhanced tool for recognizing human clinical phenotype with deep-learning.
 
 [![Build Status](https://travis-ci.com/EclipseCN/PhenoBERT.svg?branch=main)](https://travis-ci.com/EclipseCN/PhenoBERT) ![Python](https://img.shields.io/badge/python->=3.6-blue)
 

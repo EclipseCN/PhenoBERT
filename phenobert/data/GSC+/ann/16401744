@@ -1,13 +1,9 @@
 [67::92]	HP_0002187 | severe mental retardation
-[74::92]	HP_0001249 | mental retardation
-[81::92]	HP_0001249 | retardation
 [94::109]	HP_0007170 | speech disorder
 [111::138]	HP_0007087 | stereotyped jerky movements
-[123::138]	HP_0007087 | jerky movements
 [155::173]	HP_0000715 | behavioral profile
 [182::199]	HP_0100024 | happy disposition
 [204::225]	HP_0000749 | outbursts of laughter
-[217::225]	HP_0000748 | laughter
 [262::270]	HP_0001250 | epilepsy
 [286::318]	HP_0002353 | electroencephalographic patterns
 [372::380]	HP_0001250 | epilepsy
@@ -21,7 +17,6 @@
 [879::914]	HP_0002123 | myoclonic and tonic-clonic seizures
 [879::888]	HP_0001336 | myoclonic
 [893::914]	HP_0002069 | tonic-clonic seizures
-[906::914]	HP_0001250 | seizures
 [954::962]	HP_0001250 | Epilepsy
 [977::982]	HP_0001945 | fever
 [1017::1035]	HP_0002133 | status epilepticus
