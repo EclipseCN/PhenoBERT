@@ -26,7 +26,7 @@ In GSC+(Lobo et al., 2017) dataset:
 
 ### Citation:
 
-coming soon
+Yuhao Feng, Lei Qi, Weidong Tian*; PhenoBERT: a knowledge-enhanced tool for recognizing human clinical phenotype with deep-learning. Coming soon
 
 
 
