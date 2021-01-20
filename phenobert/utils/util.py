@@ -1198,11 +1198,11 @@ def annotate_phrases(text, phrases_list, hpo_tree, fasttext_model, cnn_model, be
 
                 # 按升序排序
                 prediction = y.argsort().tolist()
-                scores_p = y.sort()[0]
+                scores_p = y.sort()[0] >= param1
                 # 挑选每个短语超过阈值的L1层的HPO，超过0.9的我们才认为是预测正确的L1层
                 Candidate_hpos = [
                     set([hpo_tree.getIdx2HPO_l1(prediction[idx1][idx2]) for idx2 in range(len(prediction[idx1])) if
-                         scores_p[idx1][idx2] >= param1]) for idx1 in range(len(prediction))]
+                         scores_p[idx1][idx2]]) for idx1 in range(len(prediction))]
                 for i, j in zip(phrase_items, Candidate_hpos):
                     if len(j) > 0 and "None" not in j:
                         Candidate_hpos_sub = []
@@ -1224,11 +1224,11 @@ def annotate_phrases(text, phrases_list, hpo_tree, fasttext_model, cnn_model, be
                 # Step 3: 基于BERT语义模型进行假阳性过滤
                 # 按升序排序
                 prediction = y.argsort().tolist()
-                scores_p = y.sort()[0]
+                scores_p = y.sort()[0] >= param1
                 # 挑选每个短语超过阈值的L1层的HPO，超过0.8的我们才认为是预测正确的L1层
                 Candidate_hpos = [
                     set([hpo_tree.getIdx2HPO_l1(prediction[idx1][idx2]) for idx2 in range(len(prediction[idx1])) if
-                         scores_p[idx1][idx2] >= param1]) for idx1 in range(len(prediction))]
+                         scores_p[idx1][idx2]]) for idx1 in range(len(prediction))]
 
 
                 # 通过BERT模型进行Refine
