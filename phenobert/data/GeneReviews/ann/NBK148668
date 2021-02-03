@@ -1,0 +1,34 @@
+363	377	kyphoscoliosis	HP:0002751
+379	389	knock-knee	HP:0002857
+391	402	genu valgum	HP:0002857
+409	425	pectus carinatum	HP:0000768
+555	559	pain	HP:0012531
+576	596	Legg Perthes disease	HP:0005743
+647	660	short stature	HP:0004322
+690	694	pain	HP:0012531
+699	708	arthritis	HP:0001369
+790	812	respiratory compromise	HP:0002093
+814	837	obstructive sleep apnea	HP:0002870
+839	861	valvular heart disease	HP:0001654
+863	881	hearing impairment	HP:0000365
+883	900	visual impairment	HP:0000505
+906	922	corneal clouding	HP:0007957
+924	944	dental abnormalities	HP:0000164
+950	962	hepatomegaly	HP:0002240
+964	994	Compression of the spinal cord	HP:0002176
+1964	1978	Kyphoscoliosis	HP:0002751
+1980	1990	knock-knee	HP:0002857
+1992	2003	genu valgum	HP:0002857
+2021	2037	pectus carinatum	HP:0000768
+2596	2618	respiratory compromise	HP:0002093
+2620	2643	obstructive sleep apnea	HP:0002870
+2645	2667	valvular heart disease	HP:0001654
+2669	2687	hearing impairment	HP:0000365
+2689	2705	corneal clouding	HP:0007957
+2707	2727	dental abnormalities	HP:0000164
+2733	2745	hepatomegaly	HP:0002240
+2747	2777	Compression of the spinal cord	HP:0002176
+2789	2811	neurologic involvement	HP:0000707
+2865	2887	Coarse facial features	HP:0000280
+3048	3066	Ligamentous laxity	HP:0001388
+3071	3090	joint hypermobility	HP:0001382

@@ -1,0 +1,53 @@
+67	84	sparse scalp hair	HP:0002209
+86	148	prominence of the inter-phalangeal joints and distal phalanges	HP:0006261
+156	182	decreased subcutaneous fat	HP:0003758
+199	221	characteristic coarse facial features	HP:0000280
+223	235	microcephaly	HP:0000252
+237	245	seizures	HP:0001250
+251	270	developmental delay	HP:0001263
+273	296	intellectual disability	HP:0001249
+298	306	Seizures	HP:0001250
+360	379	Developmental delay	HP:0001263
+382	405	intellectual disability	HP:0001249
+502	541	never develop speech or language skills	HP:0001344
+736	764	Scalp hair is usually sparse	HP:0002209
+899	924	Skin pigmentation appears	HP:0001000
+1010	1044	Poor subcutaneous fat distribution	HP:0007552
+1054	1069	prominent veins	HP:0001015
+1071	1107	interphalangeal joints are prominent	HP:0006237
+1113	1135	distal phalanges widen	HP:0009836
+1217	1248	second toes can occur over time	HP:0010319
+1250	1272	Delayed tooth eruption	HP:0000684
+1393	1401	Seizures	HP:0001250
+1536	1544	seizures	HP:0001250
+1627	1634	seizure	HP:0001250
+1661	1705	Regression or lack of developmental progress	HP:0001263
+1739	1747	seizures	HP:0001250
+1749	1768	Developmental delay	HP:0001263
+1771	1794	intellectual disability	HP:0001249
+1843	1869	severe developmental delay	HP:0011344
+1872	1895	intellectual disability	HP:0001249
+1906	1958	particular delays in speech and language development	HP:0000750
+1976	2008	moderate intellectual disability	HP:0002342
+2106	2135	age for walking independently	HP:0002355
+2249	2257	seizures	HP:0001250
+2309	2323	loss of speech	HP:0002371
+2325	2342	Behavior problems	HP:0000708
+2399	2432	displaying autistic-like features	HP:0000729
+2442	2455	perseveration	HP:0030223
+2460	2471	hyperacusis	HP:0010780
+2650	2666	low birth weight	HP:0001518
+2702	2715	short stature	HP:0004322
+2761	2773	Microcephaly	HP:0000252
+2910	2924	Cryptorchidism	HP:0000028
+2948	2960	Hearing loss	HP:0000365
+3024	3036	hearing loss	HP:0000365
+3078	3093	Visual deficits	HP:0100704
+3104	3110	myopia	HP:0000545
+3115	3126	astigmatism	HP:0000483
+3194	3218	Congenital heart defects	HP:0001627
+3226	3246	atrial septal defect	HP:0001631
+3248	3280	stenosis of the pulmonary artery	HP:0004415
+3282	3293	coarctation	HP:0001680
+3295	3320	patient ductus arteriosus	HP:0001643
+3326	3344	double aortic arch	HP:0011590

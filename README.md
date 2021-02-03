@@ -226,8 +226,9 @@ We provide here two corpus with annotations used in the evaluation (`phenobert/d
 
 | Dataset     | Num  | Description                                                  |
 | ----------- | ---- | ------------------------------------------------------------ |
-| GSC+        | 228  | Composed of 228 abstracts of biomedical literature (Lobo et al., 2017) in raw format |
+| GSC+        | 228  | Contains 228 abstracts of biomedical literature (Lobo et al., 2017) in raw format |
 | 68_clinical | 68   | Clinical description of 68 real cases in the intellectual disability study (Anazi et al., 2017) |
+| GeneReviews | 10   | Contains 10 [GeneReviews](https://www.ncbi.nlm.nih.gov/books/NBK1116/) clinical cases and annotations |
 | val         | 30   | Contains 30 disease research articles from the [OMIM database](https://www.omim.org/) to determine hyperparameters in our model |
 
 

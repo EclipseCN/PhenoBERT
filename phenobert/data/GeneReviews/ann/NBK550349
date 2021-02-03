@@ -1,0 +1,32 @@
+100	115	lactic acidosis	HP:0003128
+120	140	ketotic hypoglycemia	HP:0012734
+157	173	hyperventilation	HP:0002883
+175	188	apneic spells	HP:0002104
+190	198	seizures	HP:0001250
+207	211	coma	HP:0001259
+300	312	hypoglycemia	HP:0001943
+450	455	fever	HP:0001945
+489	497	vomiting	HP:0002013
+740	746	Sepsis	HP:0100806
+748	757	blindness	HP:0000618
+967	990	intellectual disability	HP:0001249
+1020	1042	prolonged hypoglycemia	HP:0001943
+1155	1170	lactic acidosis	HP:0003128
+1175	1195	ketotic hypoglycemia	HP:0012734
+1485	1497	hypoglycemia	HP:0001943
+1697	1709	hypoglycemia	HP:0001943
+1790	1806	hyperventilation	HP:0002883
+1808	1821	apneic spells	HP:0002104
+1823	1831	seizures	HP:0001250
+1840	1844	coma	HP:0001259
+1857	1869	hepatomegaly	HP:0002240
+1871	1889	Muscular hypotonia	HP:0001252
+1939	1966	transient liver dysfunction	HP:0001410
+2106	2118	irritability	HP:0000737
+2120	2130	somnolence	HP:0001262
+2132	2141	hypotonia	HP:0001290
+2147	2154	dyspnea	HP:0002094
+2198	2203	fever	HP:0001945
+2237	2245	vomiting	HP:0002013
+2715	2721	Sepsis	HP:0100806
+2723	2732	blindness	HP:0000618

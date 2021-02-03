@@ -1,0 +1,64 @@
+9	29	Abetalipoproteinemia	HP:0008181
+65	82	failure to thrive	HP:0001508
+84	92	diarrhea	HP:0002014
+94	102	vomiting	HP:0002013
+108	128	malabsorption of fat	HP:0002630
+169	183	acanthocytosis	HP:0001927
+223	229	anemia	HP:0001903
+231	246	reticulocytosis	HP:0001923
+277	295	hyperbilirubinemia	HP:0002904
+297	317	Malabsorption of fat	HP:0002630
+369	409	increased international normalized ratio	HP:0008151
+460	486	pigmentation of the retina	HP:0007703
+509	541	progressive loss of night vision	HP:0007675
+549	574	color vision in adulthood	HP:0000551
+646	674	loss of deep tendon reflexes	HP:0001284
+676	691	vibratory sense	HP:0002495
+713	728	muscle weakness	HP:0001324
+730	740	dysarthria	HP:0001260
+746	752	ataxia	HP:0001251
+825	865	Abetalipoproteinemia	HP:0008181
+881	898	failure to thrive	HP:0001508
+900	908	diarrhea	HP:0002014
+910	918	vomiting	HP:0002013
+924	944	malabsorption of fat	HP:0002630
+1126	1137	Steatorrhea	HP:0002570
+1314	1325	steatorrhea	HP:0002570
+1469	1481	Hepatomegaly	HP:0002240
+1486	1503	hepatic steatosis	HP:0001397
+1550	1565	steatohepatitis	HP:0001397
+1581	1590	cirrhosis	HP:0001394
+1867	1887	abetalipoproteinemia	HP:0008181
+1911	1925	Acanthocytosis	HP:0001927
+1974	2008	Low erythrocyte sedimentation rate	HP:0025022
+2009	2015	Anemia	HP:0001903
+2016	2031	Reticulocytosis	HP:0001923
+2032	2050	Hyperbilirubinemia	HP:0002904
+2061	2074	Prolonged INR	HP:0008151
+2082	2102	vitamin K deficiency	HP:0011892
+2137	2157	abetalipoproteinemia	HP:0008181
+2214	2240	pigmentation of the retina	HP:0007703
+2312	2343	experience loss of night vision	HP:0000662
+2351	2363	color vision	HP:0000551
+2452	2460	scotomas	HP:0000575
+2505	2516	visual loss	HP:0000572
+2689	2695	ptosis	HP:0000508
+2700	2715	ophthalmoplegia	HP:0000602
+2719	2739	vitamin E deficiency	HP:0100513
+2759	2778	nerve demyelination	HP:0011096
+2780	2794	Corneal ulcers	HP:0012804
+2827	2847	vitamin A deficiency	HP:0004905
+2910	2930	abetalipoproteinemia	HP:0008181
+2944	2971	the deficiency of vitamin E	HP:0100513
+3071	3099	loss of deep tendon reflexes	HP:0001284
+3101	3116	vibratory sense 	HP:0002495
+3122	3136	proprioception	HP:0010831
+3137	3152	Muscle weakness	HP:0001324
+3153	3163	Dysarthria	HP:0001260
+3195	3201	ataxia	HP:0001251
+3225	3243	high stepping gait	HP:0003376
+3326	3339	cardiomegaly	HP:0001640
+3391	3405	cardiomyopathy	HP:0001638
+3474	3488	hypothyroidism	HP:0000821
+3528	3548	abetalipoproteinemia	HP:0008181
+3745	3764	respiratory failure	HP:0002878

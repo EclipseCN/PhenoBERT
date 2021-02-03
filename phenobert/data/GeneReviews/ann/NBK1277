@@ -1,0 +1,47 @@
+65	78	delayed motor	HP:0001270
+108	148	mild-to-moderate intellectual disability	HP:0002342
+150	181	craniosynostosis of the coronal	HP:0004440
+196	212	lambdoid sutures	HP:0004443
+214	247	distinctive craniofacial features	HP:0001999
+288	304	olichostenomelia	HP:0001519
+306	320	arachnodactyly	HP:0001166
+322	335	camptodactyly	HP:0012385
+337	353	pectus excavatum	HP:0000767
+337	366	pectus excavatum or carinatum	HP:0000768
+368	377	scoliosis	HP:0002650
+379	398	joint hypermobility	HP:0001382
+402	414	contractures	HP:0001371
+416	426	pes planus	HP:0001763
+450	474	C1-C2 spine malformation	HP:0008440
+476	500	Cardiovascular anomalies	HP:0001626
+513	534	mitral valve prolapse	HP:0001634
+536	565	secundum atrial septal defect	HP:0001684
+571	593	aortic root dilatation	HP:0002616
+595	619	Minimal subcutaneous fat	HP:0003717
+621	643	abdominal wall defects	HP:0010866
+649	655	myopia	HP:0000545
+921	953	cognitive milestones are delayed	HP:0001263
+958	997	intellectual disability is usually mild	HP:0001256
+1273	1176	craniosynostosis	HP:0001363
+1324	1344	abnormal skull shape	HP:0002678
+1461	1477	craniosynostosis	HP:0001363
+1539	1552	hypertelorism	HP:0000316
+1554	1585	downslanting palpebral fissures	HP:0000494
+1587	1603	ocular proptosis	HP:0000520
+1605	1623	high narrow palate	HP:0002705
+1625	1637	micrognathia	HP:0000347
+1643	1675	low-set posteriorly rotated ears	HP:0000368
+1677	1689	Cleft palate	HP:0000175
+1757	1771	Arachnodactyly	HP:0001166
+1773	1786	camptodactyly	HP:0012385
+1788	1806	pectus deformities	HP:0000766
+1812	1820	clubfeet	HP:0001762
+1867	1885	Joint contractures	HP:0001371
+2003	2037	Aortic root dilatation was present	HP:0002616
+2110	2129	arterial tortuosity	HP:0005116
+2206	2212	Myopia	HP:0000545
+2252	2276	Minimal subcutaneous fat	HP:0003717
+2284	2301	marfanoid habitus	HP:0001519
+2410	2423	Dural ectasia	HP:0100775
+2442	2463	Chiari 1 malformation	HP:0002308
+2482	2496	Cryptorchidism	HP:0000028
