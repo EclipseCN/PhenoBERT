@@ -13,11 +13,9 @@
 [333::359]	HP_0000384 | preauricular protuberances
 [361::383]	HP_0000377 | hypoplastic satyr ears
 [385::411]	HP_0000407 | sensorineural hearing loss
-[399::411]	HP_0000365 | hearing loss
 [416::434]	HP_0000079 | urorenal anomalies
 [471::485]	HP_0002813 | limb anomalies
 [487::513]	HP_0000407 | sensorineural hearing loss
-[501::513]	HP_0000365 | hearing loss
 [518::533]	HP_0000077 | renal anomalies
 [535::558]	HP_0002034 | Anorectal malformations
 [695::720]	HP_0003822 | intrafamilial variability

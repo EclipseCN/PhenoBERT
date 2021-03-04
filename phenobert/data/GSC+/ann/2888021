@@ -1,8 +1,6 @@
 [0::36]	HP_0009589 | Bilateral acoustic neurofibromatosis
 [38::42]	HP_0009589 | BANF
 [56::83]	HP_0000006 | autosomal dominant disorder
-[56::74]	HP_0000006 | autosomal dominant
-[118::125]	HP_0002664 | tumours
 [118::147]	HP_0004375 | tumours of the nervous system
 [158::169]	HP_0002858 | meningiomas
 [171::178]	HP_0009733 | gliomas

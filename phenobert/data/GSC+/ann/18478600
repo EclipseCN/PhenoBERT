@@ -1,6 +1,5 @@
 [0::19]	HP_0009756 | Popliteal pterygium
 [143::174]	HP_0000924 | Skeletal, genital malformations
-[153::174]	HP_0000078 | genital malformations
 [179::202]	HP_0000951 | involvement of the skin
 [220::238]	HP_0000202 | orofacial clefting
 [243::251]	HP_0000196 | lip pits
@@ -11,6 +10,5 @@
 [345::364]	HP_0100269 | paramedian lip pits
 [366::390]	HP_0000122 | unilateral renal aplasia
 [398::417]	HP_0008743 | coronal hypospadias
-[406::417]	HP_0000047 | hypospadias
 [613::624]	HP_0000047 | hypospadias
 [735::753]	HP_0000792 | renal malformation

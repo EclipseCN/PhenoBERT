@@ -3,7 +3,6 @@
 [184::233]	HP_0000153 | orofacial, articular, and auditory manifestations
 [195::233]	HP_0001367 | articular, and auditory manifestations
 [210::233]	HP_0000364 | auditory manifestations
-[289::307]	HP_0000006 | autosomal dominant
 [289::313]	HP_0000006 | autosomal dominant trait
 [327::362]	HP_0009794 | branchial, otic and renal anomalies
 [327::336]	HP_0009794 | branchial
@@ -15,7 +14,6 @@
 [673::689]	HP_0007773 | vitreous anomaly
 [696::705]	HP_0000272 | flat face
 [966::984]	HP_0004467 | pre-auricular pits
-[986::995]	HP_0009794 | branchial
 [986::1004]	HP_0009795 | branchial fistulae
 [1009::1023]	HP_0000104 | renal agenesis
 [1222::1229]	HP_0003745 | de novo

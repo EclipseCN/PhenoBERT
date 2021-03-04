@@ -1,4 +1,3 @@
-[15::33]	HP_0000006 | autosomal dominant
 [15::42]	HP_0000006 | autosomal dominant disorder
 [46::64]	HP_0000177 | abnormal upper lip
 [100::109]	HP_0100333 | cleft lip
@@ -7,7 +6,6 @@
 [148::161]	HP_0000437 | flattened tip
 [163::188]	HP_0000579 | lacrimal duct obstruction
 [190::204]	HP_0000377 | malformed ears
-[210::219]	HP_0009794 | branchial
 [210::233]	HP_0009794 | branchial cleft sinuses
 [241::276]	HP_0004464 | linear skin lesions behind the ears
 [452::472]	HP_0001417 | X-linked inheritance

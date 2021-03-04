@@ -1,8 +1,6 @@
 [0::17]	HP_0006746 | Neurofibromatosis
 [23::59]	HP_0009589 | bilateral acoustic neurofibromatosis
-[78::96]	HP_0000006 | autosomal dominant
 [78::105]	HP_0000006 | autosomal dominant disorder
-[151::157]	HP_0002664 | tumors
 [151::179]	HP_0004375 | tumors of the nervous system
 [191::202]	HP_0002858 | meningiomas
 [204::211]	HP_0009733 | gliomas

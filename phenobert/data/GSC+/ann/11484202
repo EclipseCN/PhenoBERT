@@ -2,7 +2,6 @@
 [67::81]	HP_0001155 | hand anomalies
 [87::104]	HP_0000598 | ear malformations
 [110::136]	HP_0000407 | sensorineural hearing loss
-[124::136]	HP_0000365 | hearing loss
 [153::161]	HP_0003745 | sporadic
 [163::235]	HP_0003822 | Within and between families, the phenotype displays striking variability
 [224::235]	HP_0003812 | variability

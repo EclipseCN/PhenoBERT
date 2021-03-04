@@ -1,7 +1,6 @@
 [48::66]	HP_0000006 | autosomal-dominant
 [67::79]	HP_0000175 | cleft palate
 [80::101]	HP_0002260 | craniofacial disorder
-[107::115]	HP_0003813 | variable
 [107::128]	HP_0003828 | variable expressivity
 [157::176]	HP_0000951 | cutaneous anomalies
 [188::225]	HP_0000377 | infra- and/or supra-auricular defects
@@ -9,7 +8,6 @@
 [287::304]	HP_0001999 | facial appearance
 [306::322]	HP_0000356 | malformed pinnae
 [324::335]	HP_0000202 | oral clefts
-[329::335]	HP_0009794 | clefts
 [358::406]	HP_0000077 | renal and ectodermal (dental and hair) anomalies
 [368::406]	HP_0000164 | ectodermal (dental and hair) anomalies
 [824::831]	HP_0003745 | de novo

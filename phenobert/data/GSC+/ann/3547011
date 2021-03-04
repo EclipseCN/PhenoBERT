@@ -6,7 +6,6 @@
 [319::341]	HP_0010603 | odontogenic keratocyst
 [357::383]	HP_0003590 | appears during adolescence
 [436::447]	HP_0008069 | skin tumors
-[441::447]	HP_0002664 | tumors
 [449::454]	HP_0001056 | milia
 [456::472]	HP_0200040 | epidermoid cysts
 [474::482]	HP_0010605 | chalazia
@@ -14,7 +13,6 @@
 [499::522]	HP_0010610 | palmar and plantar pits
 [510::522]	HP_0010612 | plantar pits
 [541::552]	HP_0008069 | skin tumors
-[546::552]	HP_0002664 | tumors
 [804::816]	HP_0008069 | skin cancers
 [860::881]	HP_0002671 | basal-cell carcinomas
 [887::896]	HP_0000951 | comedones
@@ -24,7 +22,6 @@
 [1044::1054]	HP_0002858 | meningioma
 [1056::1071]	HP_0010618 | ovarian fibroma
 [1073::1093]	HP_0000137 | ovarian fibrosarcoma
-[1095::1107]	HP_0100244 | fibrosarcoma
 [1095::1119]	HP_0000209 | fibrosarcoma of the jaws
 [1121::1136]	HP_0010617 | cardiac fibroma
 [1144::1155]	HP_0009730 | rhabdomyoma
