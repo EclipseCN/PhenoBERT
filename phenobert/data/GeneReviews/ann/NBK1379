@@ -6,6 +6,7 @@
 470	480	dysarthria	HP:0001260
 482	491	dysmetria	HP:0001310
 493	525	abnormalities in ocular saccades	HP:0000570
+493	544	abnormalities in ocular saccades and smooth pursuit	HP:0000617
 562	592	upper motor neuron dysfunction	HP:0002493
 594	604	spasticity	HP:0001257
 606	619	hyperreflexia	HP:0001347

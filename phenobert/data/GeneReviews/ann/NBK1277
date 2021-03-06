@@ -6,8 +6,7 @@
 288	304	olichostenomelia	HP:0001519
 306	320	arachnodactyly	HP:0001166
 322	335	camptodactyly	HP:0012385
-337	353	pectus excavatum	HP:0000767
-337	366	pectus excavatum or carinatum	HP:0000768
+337	366	pectus excavatum or carinatum	HP:0000766
 368	377	scoliosis	HP:0002650
 379	398	joint hypermobility	HP:0001382
 402	414	contractures	HP:0001371
@@ -22,6 +21,8 @@
 649	655	myopia	HP:0000545
 921	953	cognitive milestones are delayed	HP:0001263
 958	997	intellectual disability is usually mild	HP:0001256
+1160	1205	Craniosynostosis usually involves the coronal	HP:0004440
+1220	1236	lambdoid sutures	HP:0004443
 1273	1176	craniosynostosis	HP:0001363
 1324	1344	abnormal skull shape	HP:0002678
 1461	1477	craniosynostosis	HP:0001363
@@ -42,6 +43,7 @@
 2206	2212	Myopia	HP:0000545
 2252	2276	Minimal subcutaneous fat	HP:0003717
 2284	2301	marfanoid habitus	HP:0001519
+2342	2364	Abdominal wall defects	HP:0010866
 2410	2423	Dural ectasia	HP:0100775
 2442	2463	Chiari 1 malformation	HP:0002308
 2482	2496	Cryptorchidism	HP:0000028

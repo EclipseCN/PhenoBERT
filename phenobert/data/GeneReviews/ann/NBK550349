@@ -9,10 +9,12 @@
 489	497	vomiting	HP:0002013
 740	746	Sepsis	HP:0100806
 748	757	blindness	HP:0000618
+763	794	Reye syndrome-like presentation	HP:0006582
 967	990	intellectual disability	HP:0001249
 1020	1042	prolonged hypoglycemia	HP:0001943
 1155	1170	lactic acidosis	HP:0003128
 1175	1195	ketotic hypoglycemia	HP:0012734
+1436	1458	metabolic derangements	HP:0001939
 1485	1497	hypoglycemia	HP:0001943
 1697	1709	hypoglycemia	HP:0001943
 1790	1806	hyperventilation	HP:0002883
@@ -30,3 +32,4 @@
 2237	2245	vomiting	HP:0002013
 2715	2721	Sepsis	HP:0100806
 2723	2732	blindness	HP:0000618
+2738	2769	Reye syndrome-like presentation	HP:0006582

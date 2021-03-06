@@ -12,6 +12,7 @@
 502	541	never develop speech or language skills	HP:0001344
 736	764	Scalp hair is usually sparse	HP:0002209
 899	924	Skin pigmentation appears	HP:0001000
+1000	1008	albinism	HP:0001022
 1010	1044	Poor subcutaneous fat distribution	HP:0007552
 1054	1069	prominent veins	HP:0001015
 1071	1107	interphalangeal joints are prominent	HP:0006237
@@ -29,13 +30,14 @@
 1872	1895	intellectual disability	HP:0001249
 1906	1958	particular delays in speech and language development	HP:0000750
 1976	2008	moderate intellectual disability	HP:0002342
-2106	2135	age for walking independently	HP:0002355
+2188	2210	psychomotor regression	HP:0002376
 2249	2257	seizures	HP:0001250
 2309	2323	loss of speech	HP:0002371
 2325	2342	Behavior problems	HP:0000708
 2399	2432	displaying autistic-like features	HP:0000729
 2442	2455	perseveration	HP:0030223
 2460	2471	hyperacusis	HP:0010780
+2514	2520	autism	HP:0000717
 2650	2666	low birth weight	HP:0001518
 2702	2715	short stature	HP:0004322
 2761	2773	Microcephaly	HP:0000252
