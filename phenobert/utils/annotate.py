@@ -18,6 +18,7 @@ def parse_arguments(argv):
     parser.add_argument('-p1', '--param1', required=False, default=0.8, type=float, help='Model param 1')
     parser.add_argument('-p2', '--param2', required=False, default=0.6, type=float, help='Model param 2')
     parser.add_argument('-p3', '--param3', required=False, default=0.9, type=float, help='Model param 3')
+    parser.add_argument('-al', '--all', required=False, action="store_true", help='Not filter overlapping concept')
     parser.add_argument('-nb', '--no-bert', required=False, action="store_true", help='Not use bert')
     parser.add_argument('-o', '--dir-out', required=True, help='Output directory path')
     parser.add_argument('-t', '--n-threads', required=False, default="10", help='PyTorch cpu threads limits')
@@ -61,7 +62,7 @@ for file_name in tqdm(file_list, ncols=10):
         text=text_file.read()
         phrases_list = process_text2phrases(text, clinical_ner_model)
         annotate_phrases(text, phrases_list, hpo_tree, fasttext_model, cnn_model, bert_model,
-                      predict_file_path, device, param1=args.param1, param2=args.param2, param3=args.param3, use_step_3=not args.no_bert)
+                      predict_file_path, device, param1=args.param1, param2=args.param2, param3=args.param3, use_longest=not args.all, use_step_3=not args.no_bert)
 
 print("Complete")
 t1 = time.time()

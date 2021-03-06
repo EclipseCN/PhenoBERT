@@ -24,7 +24,7 @@ fasttext_model = fasttext.load_model(fasttext_model_path)
 
 
 
-def annotate_text(text, output=None, param1=0.8, param2=0.6, param3=0.9, use_step_3=True):
+def annotate_text(text, output=None, param1=0.8, param2=0.6, param3=0.9, use_longest=True, use_step_3=True):
     """
     Annotate free text api.
     :param text: free text
@@ -32,7 +32,7 @@ def annotate_text(text, output=None, param1=0.8, param2=0.6, param3=0.9, use_ste
     """
     phrases_list = process_text2phrases(text, clinical_ner_model)
     result = annotate_phrases(text, phrases_list, hpo_tree, fasttext_model, cnn_model, bert_model,
-                              output, device, param1, param2, param3,
+                              output, device, param1, param2, param3, use_longest,
                               use_step_3)
     return result
 

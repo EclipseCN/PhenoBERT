@@ -1115,7 +1115,7 @@ def process_text2phrases(text, clinical_ner_model):
 
 
 def annotate_phrases(text, phrases_list, hpo_tree, fasttext_model, cnn_model, bert_model,
-                  output_file_path, device, param1, param2, param3, use_step_3):
+                  output_file_path, device, param1, param2, param3, use_longest, use_step_3):
     """
     注释一段文字
     :param text: 自由文本
@@ -1144,11 +1144,11 @@ def annotate_phrases(text, phrases_list, hpo_tree, fasttext_model, cnn_model, be
         d_match = hpo_tree.matchPhrase2HPO(raw_phrase)
         if d_match != "" and d_match in hpo_tree.phenotypic_abnormalityNT:  # 注意这里由于HPO版本不同，可能d_match!=tag
             # print(phrase_item.toString(), d_match)
-            result_list.append([phrase_item, d_match])
+            result_list.append([phrase_item, d_match, 1.0])
         else:
             # 如果已经由Step 1找出，则其内部短语均跳过
             flag = True
-            for known_phrase_item, _ in result_list:
+            for known_phrase_item, _, _ in result_list:
                 if phrase_item.issubset(known_phrase_item):
                     flag = False
                     break
@@ -1216,7 +1216,7 @@ def annotate_phrases(text, phrases_list, hpo_tree, fasttext_model, cnn_model, be
                                  range(len(prediction_sub)) if scores_p_sub[idx] >= param2])
                         Candidate_hpos_sub.sort(key=lambda x: x[1], reverse=True)
                         if len(Candidate_hpos_sub) != 0 and Candidate_hpos_sub[0][0] != "None":
-                            result_list.append([i, Candidate_hpos_sub[0][0]])
+                            result_list.append([i, Candidate_hpos_sub[0][0], Candidate_hpos_sub[0][1]])
 
 
             else:
@@ -1262,10 +1262,11 @@ def annotate_phrases(text, phrases_list, hpo_tree, fasttext_model, cnn_model, be
                             # print(raw_phrase, candidate_phrase)
                             ans_hpo, score, class_num = produceCandidateTriple(raw_phrase, candidate_phrase, bert_model, hpo_tree, Candidate_hpos_sub, param3)
                             if ans_hpo != "None":
-                                result_list.append([phrase_item, ans_hpo])
+                                result_list.append([phrase_item, ans_hpo, score])
 
         # 过滤结果/取长的短语
         idx_to_remove = set()
+
         for idx1 in range(len(result_list)):
             if idx1 in idx_to_remove:
                 continue
@@ -1274,10 +1275,17 @@ def annotate_phrases(text, phrases_list, hpo_tree, fasttext_model, cnn_model, be
                     continue
                 if idx1 != idx2:
                     if result_list[idx1][0].include(result_list[idx2][0]):
-                        if len(result_list[idx1][0]) > len(result_list[idx2][0]):
-                            idx_to_remove.add(idx2)
+                        if use_longest:
+                            if len(result_list[idx1][0]) > len(result_list[idx2][0]):
+                                idx_to_remove.add(idx2)
+                            else:
+                                idx_to_remove.add(idx1)
                         else:
-                            idx_to_remove.add(idx1)
+                            if result_list[idx1][1] == result_list[idx2][1]:
+                                if len(result_list[idx1][0]) > len(result_list[idx2][0]):
+                                    idx_to_remove.add(idx1)
+                                else:
+                                    idx_to_remove.add(idx2)
 
         result_list = sorted([result_list[idx] for idx in range(len(result_list)) if idx not in idx_to_remove],
                              key=lambda x: x[0].start_loc)
@@ -1285,14 +1293,16 @@ def annotate_phrases(text, phrases_list, hpo_tree, fasttext_model, cnn_model, be
         for item in result_list:
             if not item[0].no_flag:
                 if output_file_path is not None:
-                    output_file.write(f"{item[0].start_loc}\t{item[0].end_loc}\t{text[item[0].start_loc:item[0].end_loc]}\t{item[1]}\n")
+                    output_file.write(
+                        f"{item[0].start_loc}\t{item[0].end_loc}\t{text[item[0].start_loc:item[0].end_loc]}\t{item[1]}\t{'%.2f' % (item[2])}\n")
                 else:
-                    output_file += f"{item[0].start_loc}\t{item[0].end_loc}\t{text[item[0].start_loc:item[0].end_loc]}\t{item[1]}\n"
+                    output_file += f"{item[0].start_loc}\t{item[0].end_loc}\t{text[item[0].start_loc:item[0].end_loc]}\t{item[1]}\t{'%.2f' % (item[2])}\n"
             else:
                 if output_file_path is not None:
-                    output_file.write(f"{item[0].start_loc}\t{item[0].end_loc}\t{text[item[0].start_loc:item[0].end_loc]}\t{item[1]}\tNeg\n")
+                    output_file.write(
+                        f"{item[0].start_loc}\t{item[0].end_loc}\t{text[item[0].start_loc:item[0].end_loc]}\t{item[1]}\t{'%.2f' % (item[2])}\tNeg\n")
                 else:
-                    output_file += f"{item[0].start_loc}\t{item[0].end_loc}\t{text[item[0].start_loc:item[0].end_loc]}\t{item[1]}\tNeg\n"
+                    output_file += f"{item[0].start_loc}\t{item[0].end_loc}\t{text[item[0].start_loc:item[0].end_loc]}\t{item[1]}\t{'%.2f' % (item[2])}\tNeg\n"
 
         if output_file_path is not None:
             output_file.close()

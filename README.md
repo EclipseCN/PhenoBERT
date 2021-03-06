@@ -132,6 +132,7 @@ Arguments:
  -p1 parameter for CNN model [0.8]
  -p2 parameter for CNN model [0.6]
  -p3 parameter for BERT model [0.9]
+ -al flag for not filter overlapping concept
  -nb flag for not use BERT
  -t  cpu threads for calculation [10]
 ```
@@ -159,7 +160,7 @@ print(annotate_text("I have a headache"))
 Output:
 
 ```shell
-9       17      headache        HP:0002315
+9       17      headache        HP:0002315        1.0
 ```
 
 Notice: use `output = path/`can redirect output to specified file
