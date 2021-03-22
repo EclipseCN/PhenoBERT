@@ -894,25 +894,19 @@ def getStopWords():
     return stopwords
 
 
-def getSpliters1():
+def getSpliters():
     """
     用于分割短句的分割词
     :return:
     """
-    spliters = {'what', 'which', 'who', 'whom', 'that', 'but', 'if', 'except', 'include', 'includes', 'including', 'however', 'though', 'although',
-                'because', 'either', 'neither', 'therefore', 'as', 'until', 'why', 'how', ',', '.', ':', ';', '(', ')', '[', ']'}
+    spliters = set([word for word, pos in nltk.pos_tag(stopwords.words('english')) if pos in {'IN', 'CC', 'WP', 'TO', 'WDT'}]+[',', '.', ':', ';', '(', ')', '[', ']', '/'])
     return spliters
 
-def getSpliters2():
-    spliters = {"about", "with", "at", "of", "after", "before", "between", "by", "to", "in", "on", "without", "within", "from", "due", "during",
-                "and", "or", '/'}
-    return spliters
 
 def getNegativeWords():
     negatives = {"no", "not", "none", "negative", "non", "never", "few", "lower", "fewer", "less", "barely",
                            "normal"}
     return negatives
-
 
 
 def produceCandidate(raw_phrase, Candidate_phrases, model):
@@ -1007,8 +1001,7 @@ def process_text2phrases(text, clinical_ner_model):
     :return: List[PhraseItem]
     """
     tokenizer = SpanTokenizer()
-    spliters1 = getSpliters1()
-    spliters2 = getSpliters2()
+    spliters = getSpliters()
     stopwords = getStopWords()
     # 将文本处理成正常的小写形式
     text = strip_accents(text.lower())
@@ -1020,10 +1013,12 @@ def process_text2phrases(text, clinical_ner_model):
 
     for sent_c in clinical_docs.sentences:
         clinical_tokens = sent_c.tokens
+
+        # phrase segmentation
         curSentence = []
         for i in range(len(clinical_tokens)):
             wi = WordItem(clinical_tokens[i].text, clinical_tokens[i].start_char, clinical_tokens[i].end_char)
-            if clinical_tokens[i].text in spliters1 or (clinical_tokens[i].text in spliters2 and clinical_tokens[i].ner == "O"):
+            if clinical_tokens[i].text in spliters:
                 if len(curSentence) > 0:
                     phrase_item = PhraseItem(curSentence)
                     sub_sentences.append(phrase_item)
@@ -1035,7 +1030,21 @@ def process_text2phrases(text, clinical_ner_model):
             phrase_item = PhraseItem(curSentence)
             sub_sentences.append(phrase_item)
 
-    # print([i.toString() for i in sub_sentences])
+        # Stanza
+        curSentence = []
+        for i in range(len(clinical_tokens)):
+            wi = WordItem(clinical_tokens[i].text, clinical_tokens[i].start_char, clinical_tokens[i].end_char)
+            if "PROBLEM" in clinical_tokens[i].ner and wi.text not in {',', '.', ':', ';', '(', ')', '[', ']'}:
+                curSentence.append(wi)
+            else:
+                if len(curSentence) > 0:
+                    phrase_item = PhraseItem(curSentence)
+                    sub_sentences.append(phrase_item)
+                curSentence = []
+
+        if len(curSentence) > 0:
+            phrase_item = PhraseItem(curSentence)
+            sub_sentences.append(phrase_item)
 
     # 否定检测
     for phrase_item in sub_sentences:
