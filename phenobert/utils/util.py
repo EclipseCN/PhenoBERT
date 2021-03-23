@@ -849,7 +849,8 @@ def process_text2phrases(text, clinical_ner_model):
     # 将文本处理成正常的小写形式
     text = strip_accents(text.lower())
     # 对于换行符替换为空格，后续作为分割词
-    text = re.sub("[-_\"\'\\\\\t\r\n‘’]", " ", text)
+    text = re.sub("[-_\"\'\\\\\t‘’]", " ", text)
+    text = re.sub("(?<=[\w])[\r\n]", ".", text)
 
     clinical_docs = clinical_ner_model(text)
     sub_sentences = []

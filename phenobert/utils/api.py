@@ -1,4 +1,5 @@
 import os
+import re
 import torch
 import stanza
 import fasttext
@@ -30,6 +31,7 @@ def annotate_text(text, output=None, param1=0.8, param2=0.6, param3=0.9, use_lon
     :param text: free text
     :param output: output str or file, default for str
     """
+    text = re.sub("(?<=[A-Z])-(?=[\d])", "", text)
     phrases_list = process_text2phrases(text, clinical_ner_model)
     result = annotate_phrases(text, phrases_list, hpo_tree, fasttext_model, cnn_model, bert_model,
                               output, device, param1, param2, param3, use_longest,
