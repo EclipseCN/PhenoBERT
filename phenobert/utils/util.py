@@ -828,6 +828,7 @@ def processStr(string):
     :param string:
     :return:
     """
+    string = re.sub("(?<=[A-Z])-(?=[\d])", "", string)  # 统一类型表述
     string = strip_accents(string.lower())
     string = re.sub("[-_\"\'\\\\\t\r\n‘’]", " ", string)
     all_text = string.strip().split()

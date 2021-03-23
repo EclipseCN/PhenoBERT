@@ -9,7 +9,7 @@ import stanza
 import argparse
 import warnings
 from tqdm import tqdm
-
+import re
 
 
 def parse_arguments(argv):
@@ -60,6 +60,8 @@ for file_name in tqdm(file_list, ncols=10):
     predict_file_path=os.path.join(predict_dir_path, file_name)
     with open(os.path.join(corpus_dir_path, file_name), "r", encoding="utf-8") as text_file:
         text=text_file.read()
+        # 统一类型表述
+        text = re.sub("(?<=[A-Z])-(?=[\d])", "", text)
         phrases_list = process_text2phrases(text, clinical_ner_model)
         annotate_phrases(text, phrases_list, hpo_tree, fasttext_model, cnn_model, bert_model,
                       predict_file_path, device, param1=args.param1, param2=args.param2, param3=args.param3, use_longest=not args.all, use_step_3=not args.no_bert)
