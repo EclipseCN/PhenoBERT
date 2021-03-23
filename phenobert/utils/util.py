@@ -460,22 +460,6 @@ class HPOTree:
         idx2hpo = {hpo2idx[hpo]: hpo for hpo in hpo2idx}
         return root_idx, hpo_list, n_concept, hpo2idx, idx2hpo
 
-    def buildSimilarityMatrix(self):
-        """
-        基于self.getNodeSimilarityByID计算节点相似性矩阵并序列化保存
-        :return:
-        """
-        num = len(self.idx2hpo)
-        mat = np.zeros((num, num), dtype=np.float)
-        for i in range(num):
-            for j in range(i, num):
-                if i == j:
-                    mat[i][j] = 1.0
-                else:
-                    tmp = self.getNodeSimilarityByID(self.getIdx2HPO(i), self.getIdx2HPO(j))
-                    mat[i][j] = tmp
-                    mat[j][i] = tmp
-        np.save("../models/target", mat)
 
     def getNodeSimilarityByID(self, hpoNum1, hpoNum2):
         """
@@ -515,36 +499,6 @@ class HPOTree:
         # ib_score = 2*math.log2(pc3)/(math.log2(pc1)+math.log2(pc2))
         # return ib_score
 
-    def getHPO_set_similarity(self, hpo_set1, hpo_set2):
-        """
-        计算HPO集合之间的相似性；使用较为严格的均值计算方式
-        :param hpo_set1:
-        :param hpo_set2:
-        :return:
-        """
-        if len(hpo_set1) == 0 and len(hpo_set2) == 0:
-            return 1.0
-        if len(hpo_set1) == 0 or len(hpo_set2) == 0:
-            return 0.0
-        part1 = 0.0
-        for hpo_num1 in hpo_set1:
-            if hpo_num1 in hpo_set2:
-                continue
-            for hpo_num2 in hpo_set2:
-                s_score = self.getNodeSimilarityByID(hpo_num1, hpo_num2)
-                part1 += 1 - s_score
-        part1 /= len(hpo_set2)
-
-        part2 = 0.0
-        for hpo_num2 in hpo_set2:
-            if hpo_num2 in hpo_set1:
-                continue
-            for hpo_num1 in hpo_set1:
-                s_score = self.getNodeSimilarityByID(hpo_num1, hpo_num2)
-                part2 += 1 - s_score
-        part2 /= len(hpo_set1)
-
-        return 1 - ((part1 + part2) / len(hpo_set1 | hpo_set2))
 
     def getHPO_set_similarity_max(self, hpo_set1, hpo_set2):
         """
@@ -581,24 +535,6 @@ class HPOTree:
 
         return 1 - ((part1 + part2) / len(hpo_set1 | hpo_set2))
 
-    def getAdjacentMatrixFather(self):
-        """
-        产生仅考虑父节点/子节点的邻接矩阵
-        """
-        import scipy.sparse as ss
-        edges = []  # 边集合
-        num_nodes = len(self.hpo_list)
-        for hpo_num in self.hpo_list:
-            father = [node for node in HPO_class(self.data[hpo_num]).is_a if node in self.phenotypic_abnormality]
-            # 父节点
-            edges.extend([[self.getHPO2idx(hpo_num), self.getHPO2idx(nei_hpo)] for nei_hpo in father])
-            # 子节点
-            # edges.extend([[self.getHPO2idx(nei_hpo), self.getHPO2idx(hpo_num)] for nei_hpo in father])
-        edges = np.asarray(edges)
-        A = ss.coo_matrix((np.ones(len(edges)), (edges[:, 0], edges[:, 1])), shape=(num_nodes, num_nodes),
-                          dtype=np.float)
-        A += ss.eye(num_nodes)
-        return A.tocoo()
 
     def getAdjacentMatrixAncestors(self, root_l1, num_nodes):
         """
@@ -636,26 +572,6 @@ class HPOTree:
                     ancestors_weight[concept_id][ancestor_id] = 0.0
                 ancestors_weight[concept_id][ancestor_id] += ancestors_weight[father_id][ancestor_id] / len(fathers)
         return ancestors_weight[concept_id].keys()
-
-    def getInitialH0Matrix(self, fasttext_model):
-        """
-        使用每个HPO的name和synonym的所有单词和的归一化来初始化H0
-        """
-        num_nodes = len(self.hpo_list)
-        params = np.zeros((num_nodes, fasttext_model.get_dimension()))
-        for i in range(num_nodes):
-            tmp = []
-            hpo = HPO_class(self.data[self.getIdx2HPO(i)])
-            names = getNames(hpo)
-            for name in names:
-                phrase = nltk.word_tokenize(name)
-                data = np.average(
-                    np.concatenate([fasttext_model.get_word_vector(word).reshape(1, -1) for word in phrase]), axis=0)
-                tmp.append(data)
-            # [1, emb_size]
-            hpo_vector = np.average(np.concatenate(tmp), axis=0)
-            params[i, :] = hpo_vector
-        return params
 
 
 class SpanTokenizer:
@@ -778,40 +694,6 @@ def getNames(struct):
     return names
 
 
-def getCosineSimilarity4text(text1, text2) -> float:
-    """
-    计算两个文本的余弦相似度
-    """
-    import fasttext
-    from sklearn.metrics.pairwise import cosine_similarity
-    fasttext_model = fasttext.load_model(fasttext_model_path)
-    a = fasttext_model.get_word_vector(text1).reshape(1, 100)
-    b = fasttext_model.get_word_vector(text2).reshape(1, 100)
-    return (cosine_similarity(a, b)[0][0])
-
-
-def getCosineSimilarity(vec1, vec2) -> float:
-    """
-    计算两个向量的余弦相似度
-    """
-    from sklearn.metrics.pairwise import cosine_similarity
-    return (cosine_similarity(vec1, vec2)[0][0])
-
-
-def convert_text_to_ids_padding(text_list, pad_id, tokenizer):
-    input_ids = []
-    max_len = 0
-    for text in text_list:
-        item = tokenizer.encode_plus(text, add_special_tokens=False)["input_ids"]
-        input_ids.append(item)
-        max_len = max(max_len, len(item))
-    pad_data = []
-    for data in input_ids:
-        item = data + [pad_id] * (max_len - len(data))
-        pad_data.append(item)
-    return pad_data
-
-
 def strip_accents(s):
     """
     去除口音化，字面意思
@@ -887,7 +769,7 @@ def getNegativeWords():
     return negatives
 
 
-def produceCandidateTriple(raw_phrase, Candidate_phrases, model, hpo_tree, Candidate_hpos_sub, threshold):
+def produceCandidateTriple(Candidate_hpos_sub_total, model, hpo_tree, threshold):
     """
     使用BERT判断Candidate_phrases中哪个与raw_phrase语义最接近；基于最大值方式
     :param raw_phrase:
@@ -901,7 +783,13 @@ def produceCandidateTriple(raw_phrase, Candidate_phrases, model, hpo_tree, Candi
     from fastNLP import DataSet
     from fastNLP import DataSetIter
     from my_bert_match import addWordPiece, addSeqlen, addWords, processItem, processNum
-    p_Candidate_phrases = [raw_phrase + "::" + item for item in Candidate_phrases]
+    p_Candidate_phrases = []
+    phrase_nums_per_hpo = []
+    Candidate_hpos = []
+    for raw_phrase, Candidate_phrase, Candidate_hpos_sub in Candidate_hpos_sub_total:
+        p_Candidate_phrases.extend([raw_phrase + "::" + item for item in Candidate_phrase])
+        phrase_nums_per_hpo.append(len(Candidate_phrase))
+        Candidate_hpos.append(Candidate_hpos_sub)
     Candidate_dataset = DataSet({"raw_words": p_Candidate_phrases})
     Candidate_dataset.apply(addWords, new_field_name="p_words")
     Candidate_dataset.apply(addWordPiece, new_field_name="t_words")
@@ -911,7 +799,7 @@ def produceCandidateTriple(raw_phrase, Candidate_phrases, model, hpo_tree, Candi
     Candidate_dataset.field_arrays["word_pieces"].is_input = True
     Candidate_dataset.field_arrays["seq_len"].is_input = True
     Candidate_dataset.field_arrays["word_nums"].is_input = True
-    test_batch = DataSetIter(batch_size=10, dataset=Candidate_dataset, sampler=None)
+    test_batch = DataSetIter(batch_size=128, dataset=Candidate_dataset, sampler=None)
 
     outputs = []
     for batch_x, batch_y in test_batch:
@@ -919,22 +807,34 @@ def produceCandidateTriple(raw_phrase, Candidate_phrases, model, hpo_tree, Candi
         outputs.append(model.forward(batch_x["word_pieces"], batch_x["word_nums"], batch_x["seq_len"])['pred'])
     outputs = torch.cat(outputs)
     outputs = torch.nn.functional.softmax(outputs, dim=1).cpu().detach().numpy()
-
+    # print(outputs.size)
     results_2 = np.array([item[2] for item in outputs])
     results_1 = np.array([item[1] for item in outputs])
 
-    # 如果这里已经能找到精确匹配的就直接输出
-    if max(results_2) >= threshold:
-        return Candidate_hpos_sub[int(np.argmax(results_2))], max(results_2), "2"
+    # 按短语分组
+    count = 0
+    index = 0
+    ans = []
+    for group_num in phrase_nums_per_hpo:
+        g_results_2 = results_2[index:index+group_num]
+        g_results_1 = results_1[index:index+group_num]
+        Candidate_hpos_sub = Candidate_hpos[count]
+        index += group_num
+        count += 1
+        # 如果这里已经能找到精确匹配的就直接输出
+        if max(g_results_2) >= threshold:
+            ans.append([Candidate_hpos_sub[int(np.argmax(g_results_2))], max(g_results_2), "2"])
+            continue
+        # 如果这里找不到需要在相关匹配中找深度最深的
+        Candidate_hpos_sub_related = [[Candidate_hpos_sub[i], hpo_tree.depth_dict[Candidate_hpos_sub[i]], g_results_1[i]]
+                                      for i in range(len(Candidate_hpos_sub)) if g_results_1[i] >= threshold]
 
-    # 如果这里找不到需要在相关匹配中找深度最深的
-    Candidate_hpos_sub_related = [[Candidate_hpos_sub[i], hpo_tree.depth_dict[Candidate_hpos_sub[i]], results_1[i]]
-                                  for i in range(len(Candidate_hpos_sub)) if results_1[i] >= threshold]
-    Candidate_hpos_sub_related.sort(key=lambda x: (-x[1], -x[2]))
-    if len(Candidate_hpos_sub_related) > 0:
-        return Candidate_hpos_sub_related[0][0], Candidate_hpos_sub_related[0][2], "1"
-
-    return "None", None, "0"
+        Candidate_hpos_sub_related.sort(key=lambda x: (-x[1], -x[2]))
+        if len(Candidate_hpos_sub_related) > 0:
+            ans.append([Candidate_hpos_sub_related[0][0], Candidate_hpos_sub_related[0][2], "1"])
+            continue
+        ans.append(["None", None, "0"])
+    return ans
 
 def process_text2phrases(text, clinical_ner_model):
     """
@@ -1069,9 +969,8 @@ def process_text2phrases(text, clinical_ner_model):
     return phrases_list
 
 
-
 def annotate_phrases(text, phrases_list, hpo_tree, fasttext_model, cnn_model, bert_model,
-                  output_file_path, device, param1, param2, param3, use_longest, use_step_3):
+                     output_file_path, device, param1, param2, param3, use_longest, use_step_3):
     """
     注释一段文字
     :param text: 自由文本
@@ -1110,7 +1009,6 @@ def annotate_phrases(text, phrases_list, hpo_tree, fasttext_model, cnn_model, be
                     break
             if flag:
                 next_phrases_list.append(phrase_item)
-
 
     # print([i.toString() for i in next_phrases_list])
 
@@ -1173,21 +1071,17 @@ def annotate_phrases(text, phrases_list, hpo_tree, fasttext_model, cnn_model, be
                         Candidate_hpos_sub.sort(key=lambda x: x[1], reverse=True)
                         if len(Candidate_hpos_sub) != 0 and Candidate_hpos_sub[0][0] != "None":
                             result_list.append([i, Candidate_hpos_sub[0][0], Candidate_hpos_sub[0][1]])
-
-
             else:
-
-                # Step 3: 基于BERT语义模型进行假阳性过滤
                 # 按升序排序
                 prediction = y.argsort().tolist()
-                scores_p = y.sort()[0] >= param1
+                scores_p = y.sort()[0]
                 # 挑选每个短语超过阈值的L1层的HPO，超过0.8的我们才认为是预测正确的L1层
                 Candidate_hpos = [
                     set([hpo_tree.getIdx2HPO_l1(prediction[idx1][idx2]) for idx2 in range(len(prediction[idx1])) if
-                         scores_p[idx1][idx2]]) for idx1 in range(len(prediction))]
+                         scores_p[idx1][idx2] >= param1]) for idx1 in range(len(prediction))]
 
-
-                # 通过BERT模型进行Refine
+                Candidate_hpos_sub_total = []
+                next_phrase_items = []
                 for phrase_item, j in zip(phrase_items, Candidate_hpos):
                     # print(phrase_item.toString(), j)
                     if len(j) > 0 and "None" not in j:
@@ -1211,14 +1105,19 @@ def annotate_phrases(text, phrases_list, hpo_tree, fasttext_model, cnn_model, be
 
                         # print(phrase_item.toString(), Candidate_hpos_sub)
 
+                        # Step 3: 基于BERT语义模型进行假阳性过滤
                         if len(Candidate_hpos_sub) != 0 and "None" not in Candidate_hpos_sub:
                             Candidate_hpos_sub = list(Candidate_hpos_sub)
                             candidate_phrase = [hpo_tree.getNameByHPO(item) for item in Candidate_hpos_sub]
                             raw_phrase = phrase_item.toString()
                             # print(raw_phrase, candidate_phrase)
-                            ans_hpo, score, class_num = produceCandidateTriple(raw_phrase, candidate_phrase, bert_model, hpo_tree, Candidate_hpos_sub, param3)
-                            if ans_hpo != "None":
-                                result_list.append([phrase_item, ans_hpo, score])
+                            Candidate_hpos_sub_total.append([raw_phrase, candidate_phrase, Candidate_hpos_sub])
+                            next_phrase_items.append(phrase_item)
+                if len(Candidate_hpos_sub_total) > 0:
+                    ans = produceCandidateTriple(Candidate_hpos_sub_total, bert_model, hpo_tree, param3)
+                    for sub_ans, phrase_item in zip(ans, next_phrase_items):
+                        if sub_ans[0] != "None":
+                            result_list.append([phrase_item, sub_ans[0], sub_ans[1]])
 
         # 过滤结果/取长的短语
         idx_to_remove = set()
@@ -1226,22 +1125,21 @@ def annotate_phrases(text, phrases_list, hpo_tree, fasttext_model, cnn_model, be
         for idx1 in range(len(result_list)):
             if idx1 in idx_to_remove:
                 continue
-            for idx2 in range(len(result_list)):
+            for idx2 in range(idx1 + 1, len(result_list)):
                 if idx2 in idx_to_remove:
                     continue
-                if idx1 != idx2:
-                    if result_list[idx1][0].include(result_list[idx2][0]):
-                        if use_longest:
-                            if len(result_list[idx1][0]) > len(result_list[idx2][0]):
-                                idx_to_remove.add(idx2)
-                            else:
-                                idx_to_remove.add(idx1)
+                if result_list[idx1][0].include(result_list[idx2][0]):
+                    if use_longest:
+                        if len(result_list[idx1][0]) > len(result_list[idx2][0]):
+                            idx_to_remove.add(idx2)
                         else:
-                            if result_list[idx1][1] == result_list[idx2][1]:
-                                if len(result_list[idx1][0]) > len(result_list[idx2][0]):
-                                    idx_to_remove.add(idx1)
-                                else:
-                                    idx_to_remove.add(idx2)
+                            idx_to_remove.add(idx1)
+                    else:
+                        if result_list[idx1][1] == result_list[idx2][1]:
+                            if len(result_list[idx1][0]) > len(result_list[idx2][0]):
+                                idx_to_remove.add(idx1)
+                            else:
+                                idx_to_remove.add(idx2)
 
         result_list = sorted([result_list[idx] for idx in range(len(result_list)) if idx not in idx_to_remove],
                              key=lambda x: x[0].start_loc)
