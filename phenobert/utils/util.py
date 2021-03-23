@@ -8,6 +8,7 @@ import numpy as np
 import unicodedata
 from nltk.tokenize import PunktSentenceTokenizer, TreebankWordTokenizer
 from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
 
 project_path = os.path.dirname(__file__)+"/"
 
@@ -21,8 +22,7 @@ num2word_file_path = project_path + "../data/NUM.txt"
 cnn_model_path = project_path + "../models/HPOModel_H/model_layer1.pkl"
 bert_model_path = project_path + "../models/bert_model_max_triple.pkl"
 device = torch.device("cuda:0" if torch.cuda.is_available() else torch.device("cpu"))
-
-
+wnl = WordNetLemmatizer()
 
 class HPO_class:
     """
@@ -205,7 +205,7 @@ class WordItem:
     """
     英文单词的包装类
     """
-
+    lemma_dict = {}
     def __init__(self, text, start, end):
         self.text = text.lower()
         self.start = start
@@ -412,10 +412,12 @@ class HPOTree:
         :return:
         """
         p_phrase = " ".join(sorted(processStr(phrase)))
+        p_l_phrase = " ".join([WordItem.lemma_dict[i] if i in WordItem.lemma_dict else i for i in p_phrase.split()])
         if p_phrase in self.p_phrase2HPO:
             return self.p_phrase2HPO[p_phrase]
-        else:
-            return ""
+        elif p_l_phrase in self.p_phrase2HPO:
+            return self.p_phrase2HPO[p_l_phrase]
+        return ""
 
     def getHPO2idx(self, hpo_num):
         """
@@ -634,31 +636,6 @@ class HPOTree:
                     ancestors_weight[concept_id][ancestor_id] = 0.0
                 ancestors_weight[concept_id][ancestor_id] += ancestors_weight[father_id][ancestor_id] / len(fathers)
         return ancestors_weight[concept_id].keys()
-
-    def getInitialH0MatrixSB(self, h0_save_path, bert_model):
-        """
-        基于SentenceTransformer使用每个HPO的name和synonym的所有单词和的归一化来初始化H0
-        """
-        from sentence_transformers import SentenceTransformer
-        if not os.path.exists(h0_save_path):
-            num_nodes = len(self.hpo_list)
-            params = np.zeros((num_nodes, 768))
-            for i in range(num_nodes):
-                tmp = []
-                hpo = HPO_class(self.data[self.getIdx2HPO(i)])
-                names = getNames(hpo)
-                for name in names:
-                    tmp.append(np.array(bert_model.encode([name])))
-                # [1, emb_size]
-                hpo_vector = np.average(np.concatenate(tmp), axis=0)
-                params[i, :] = hpo_vector
-            H0 = torch.from_numpy(params).float()
-            saver = ModelSaver(h0_save_path)
-            saver.save(H0, params_only=False)
-        else:
-            loader = ModelLoader()
-            H0 = loader.load_all(h0_save_path)
-        return H0
 
     def getInitialH0Matrix(self, fasttext_model):
         """
@@ -909,41 +886,6 @@ def getNegativeWords():
     return negatives
 
 
-def produceCandidate(raw_phrase, Candidate_phrases, model):
-    """
-    使用BERT判断Candidate_phrases中哪个与raw_phrase语义最接近
-    :param raw_phrase:
-    :param Candidate_phrases:
-    :param model:
-    :return:
-    """
-    from fastNLP.core.utils import _move_dict_value_to_device
-    from fastNLP.core.utils import _get_model_device
-    from fastNLP import DataSet
-    from fastNLP import DataSetIter
-    from my_bert_match import addWordPiece, addSeqlen, addWords, processItem, processNum
-    p_Candidate_phrases = [raw_phrase + "::" + item for item in Candidate_phrases]
-    Candidate_dataset = DataSet({"raw_words": p_Candidate_phrases})
-    Candidate_dataset.apply(addWords, new_field_name="p_words")
-    Candidate_dataset.apply(addWordPiece, new_field_name="t_words")
-    Candidate_dataset.apply(processItem, new_field_name="word_pieces")
-    Candidate_dataset.apply(processNum, new_field_name="word_nums")
-    Candidate_dataset.apply(addSeqlen, new_field_name="seq_len")
-    Candidate_dataset.field_arrays["word_pieces"].is_input = True
-    Candidate_dataset.field_arrays["seq_len"].is_input = True
-    Candidate_dataset.field_arrays["word_nums"].is_input = True
-    test_batch = DataSetIter(batch_size=10, dataset=Candidate_dataset, sampler=None)
-
-    outputs = []
-    for batch_x, batch_y in test_batch:
-        _move_dict_value_to_device(batch_x, batch_y, device=_get_model_device(model))
-        outputs.append(model.forward(batch_x["word_pieces"], batch_x["word_nums"], batch_x["seq_len"])['pred'])
-    outputs = torch.cat(outputs)
-    outputs = torch.nn.functional.softmax(outputs, dim=1).cpu().detach().numpy()
-    results = np.array([item[1] for item in outputs])
-    return int(np.argmax(results)), max(results)
-
-
 def produceCandidateTriple(raw_phrase, Candidate_phrases, model, hpo_tree, Candidate_hpos_sub, threshold):
     """
     使用BERT判断Candidate_phrases中哪个与raw_phrase语义最接近；基于最大值方式
@@ -1018,6 +960,10 @@ def process_text2phrases(text, clinical_ner_model):
         curSentence = []
         for i in range(len(clinical_tokens)):
             wi = WordItem(clinical_tokens[i].text, clinical_tokens[i].start_char, clinical_tokens[i].end_char)
+            # 用于后续lemma比对
+            text_lemma = wnl.lemmatize(clinical_tokens[i].text)
+            if clinical_tokens[i].text not in WordItem.lemma_dict:
+                WordItem.lemma_dict[clinical_tokens[i].text] = text_lemma
             if clinical_tokens[i].text in spliters:
                 if len(curSentence) > 0:
                     phrase_item = PhraseItem(curSentence)
