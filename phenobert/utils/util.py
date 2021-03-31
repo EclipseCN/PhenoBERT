@@ -205,6 +205,7 @@ class WordItem:
     """
     英文单词的包装类
     """
+    # 用于lemmatize
     lemma_dict = {}
     def __init__(self, text, start, end):
         self.text = text.lower()
@@ -772,10 +773,10 @@ def getNegativeWords():
 def produceCandidateTriple(Candidate_hpos_sub_total, model, hpo_tree, threshold):
     """
     使用BERT判断Candidate_phrases中哪个与raw_phrase语义最接近；基于最大值方式
-    :param raw_phrase:
-    :param Candidate_phrases:
-    :param hpo_per_nums:
+    :param Candidate_hpos_sub_total: 输出的短语及候选HPO嵌套列表
     :param model:
+    :param hpo_tree:
+    :param threshold: 用作该模型输出阈值
     :return:
     """
     from fastNLP.core.utils import _move_dict_value_to_device
@@ -848,8 +849,8 @@ def process_text2phrases(text, clinical_ner_model):
     stopwords = getStopWords()
     # 将文本处理成正常的小写形式
     text = strip_accents(text.lower())
-    # 对于换行符替换为空格，后续作为分割词
     text = re.sub("[-_\"\'\\\\\t‘’]", " ", text)
+    # 对于换行符替换为句号，后续作为分割词
     text = re.sub("(?<=[\w])[\r\n]", ".", text)
 
     clinical_docs = clinical_ner_model(text)
@@ -955,7 +956,7 @@ def process_text2phrases(text, clinical_ner_model):
         if isNum(tmp) or len(tmp) <= 1:
             continue
         for i in range(len(pi.simple_items)):
-            for j in range(8):
+            for j in range(10):
                 if i + j == len(pi.simple_items):
                     break
                 if len(pi.simple_items[i:i + j + 1]) == 1:
@@ -982,6 +983,7 @@ def annotate_phrases(text, phrases_list, hpo_tree, fasttext_model, cnn_model, be
     :param bert_model: 用于判断Sentence Match的预训练模型
     :param output_file_path: 注释后的输出位置/返回字符串
     :param device: cpu or gpu
+    :param use_longest: 是否只输出最具体的概念
     :param use_step_3: 是否增加Sentence Match步骤
     :return: None
     """
