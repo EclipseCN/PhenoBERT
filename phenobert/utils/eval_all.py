@@ -95,7 +95,7 @@ for file_name in filelist:
                 tmp = inter.split(" | ")
                 r_hpo_num = tmp[0]
                 hpo_num = r_hpo_num[:2] + ":" + r_hpo_num[3:]
-            if dataset == "68_clinical" or dataset == "gene_reviews":
+            if dataset == "ID-68" or dataset == "gene_reviews":
                 inter = line.strip().split("\t")
                 hpo_num = inter[3]
             if dataset.startswith("level"):

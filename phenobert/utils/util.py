@@ -859,7 +859,32 @@ def process_text2phrases(text, clinical_ner_model):
     for sent_c in clinical_docs.sentences:
         clinical_tokens = sent_c.tokens
 
+        # Stanza
+        flag = False
+        curSentence = []
+        tmp = set()
+        for i in range(len(clinical_tokens)):
+            wi = WordItem(clinical_tokens[i].text, clinical_tokens[i].start_char, clinical_tokens[i].end_char)
+            if "PROBLEM" in clinical_tokens[i].ner and wi.text not in {',', '.', ':', ';', '(', ')', '[', ']'}:
+                curSentence.append(wi)
+            else:
+                if len(curSentence) > 0:
+                    phrase_item = PhraseItem(curSentence)
+                    sub_sentences.append(phrase_item)
+                    tmp.update(phrase_item.locs_set)
+                    flag = True
+                curSentence = []
+
+        if len(curSentence) > 0:
+            phrase_item = PhraseItem(curSentence)
+            sub_sentences.append(phrase_item)
+            tmp.update(phrase_item.locs_set)
+            flag = True
+
         # phrase segmentation
+        # 只有Stanza标记的句子才作补充
+        if not flag:
+            continue
         curSentence = []
         for i in range(len(clinical_tokens)):
             wi = WordItem(clinical_tokens[i].text, clinical_tokens[i].start_char, clinical_tokens[i].end_char)
@@ -870,30 +895,17 @@ def process_text2phrases(text, clinical_ner_model):
             if clinical_tokens[i].text in spliters:
                 if len(curSentence) > 0:
                     phrase_item = PhraseItem(curSentence)
-                    sub_sentences.append(phrase_item)
+                    # 只有不与Stanza重叠的部分才加入
+                    if len(phrase_item.locs_set & tmp) == 0:
+                        sub_sentences.append(phrase_item)
                 curSentence = []
             else:
                 curSentence.append(wi)
 
         if len(curSentence) > 0:
             phrase_item = PhraseItem(curSentence)
-            sub_sentences.append(phrase_item)
-
-        # Stanza
-        curSentence = []
-        for i in range(len(clinical_tokens)):
-            wi = WordItem(clinical_tokens[i].text, clinical_tokens[i].start_char, clinical_tokens[i].end_char)
-            if "PROBLEM" in clinical_tokens[i].ner and wi.text not in {',', '.', ':', ';', '(', ')', '[', ']'}:
-                curSentence.append(wi)
-            else:
-                if len(curSentence) > 0:
-                    phrase_item = PhraseItem(curSentence)
-                    sub_sentences.append(phrase_item)
-                curSentence = []
-
-        if len(curSentence) > 0:
-            phrase_item = PhraseItem(curSentence)
-            sub_sentences.append(phrase_item)
+            if len(phrase_item.locs_set & tmp) == 0:
+                sub_sentences.append(phrase_item)
 
     # 否定检测
     for phrase_item in sub_sentences:
