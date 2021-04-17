@@ -826,13 +826,8 @@ def produceCandidateTriple(Candidate_hpos_sub_total, model, hpo_tree, threshold)
         if max(g_results_2) >= threshold:
             ans.append([Candidate_hpos_sub[int(np.argmax(g_results_2))], max(g_results_2), "2"])
             continue
-        # 如果这里找不到需要在相关匹配中找深度最深的
-        Candidate_hpos_sub_related = [[Candidate_hpos_sub[i], hpo_tree.depth_dict[Candidate_hpos_sub[i]], g_results_1[i]]
-                                      for i in range(len(Candidate_hpos_sub)) if g_results_1[i] >= threshold]
-
-        Candidate_hpos_sub_related.sort(key=lambda x: (-x[1], -x[2]))
-        if len(Candidate_hpos_sub_related) > 0:
-            ans.append([Candidate_hpos_sub_related[0][0], Candidate_hpos_sub_related[0][2], "1"])
+        if max(g_results_1) >= threshold:
+            ans.append([Candidate_hpos_sub[int(np.argmax(g_results_1))], max(g_results_1), "1"])
             continue
         ans.append(["None", None, "0"])
     return ans
