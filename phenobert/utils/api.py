@@ -4,7 +4,7 @@ import torch
 import stanza
 import fasttext
 import warnings
-from util import process_text2phrases, annotate_phrases, ModelLoader, HPOTree, PhraseDataSet4predict, PhraseDataSet4predictFunc, produceCandidateTriple
+from util import process_text2phrases, annotate_phrases, ModelLoader, HPOTree, PhraseDataSet4predict, PhraseDataSet4predictFunc, produceCandidateTripleSlow
 from util import cnn_model_path, bert_model_path, fasttext_model_path
 from model import device
 from torch.utils.data import DataLoader
@@ -114,7 +114,7 @@ def get_most_related_HPO_term(phrases_list, param1=0.8, param2=0.6, param3=0.9):
                 candidate_phrase = [hpo_tree.getNameByHPO(item) for item in Candidate_hpos_sub]
                 raw_phrase = i
                 # print(raw_phrase, candidate_phrase)
-                ans_hpo, score, class_num = produceCandidateTriple(raw_phrase, candidate_phrase, bert_model, hpo_tree,
+                ans_hpo, score, class_num = produceCandidateTripleSlow(raw_phrase, candidate_phrase, bert_model,
                                                                    Candidate_hpos_sub, param3)
                 if ans_hpo != "None":
                     res.append([i, ans_hpo])

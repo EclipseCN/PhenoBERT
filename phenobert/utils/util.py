@@ -770,7 +770,7 @@ def getNegativeWords():
     return negatives
 
 
-def produceCandidateTriple(Candidate_hpos_sub_total, model, hpo_tree, threshold):
+def produceCandidateTriple(Candidate_hpos_sub_total, model, threshold):
     """
     使用BERT判断Candidate_phrases中哪个与raw_phrase语义最接近；基于最大值方式
     :param Candidate_hpos_sub_total: 输出的短语及候选HPO嵌套列表
@@ -826,11 +826,57 @@ def produceCandidateTriple(Candidate_hpos_sub_total, model, hpo_tree, threshold)
         if max(g_results_2) >= threshold:
             ans.append([Candidate_hpos_sub[int(np.argmax(g_results_2))], max(g_results_2), "2"])
             continue
+        # 找近似关系
         if max(g_results_1) >= threshold:
             ans.append([Candidate_hpos_sub[int(np.argmax(g_results_1))], max(g_results_1), "1"])
             continue
         ans.append(["None", None, "0"])
     return ans
+
+def produceCandidateTripleSlow(raw_phrase, Candidate_phrases, model, Candidate_hpos_sub, threshold):
+    """
+    使用BERT判断Candidate_phrases中哪个与raw_phrase语义最接近；基于最大值方式
+    :param raw_phrase:
+    :param Candidate_phrases:
+    :param hpo_per_nums:
+    :param model:
+    :return:
+    """
+    from fastNLP.core.utils import _move_dict_value_to_device
+    from fastNLP.core.utils import _get_model_device
+    from fastNLP import DataSet
+    from fastNLP import DataSetIter
+    from my_bert_match import addWordPiece, addSeqlen, addWords, processItem, processNum
+    p_Candidate_phrases = [raw_phrase + "::" + item for item in Candidate_phrases]
+    Candidate_dataset = DataSet({"raw_words": p_Candidate_phrases})
+    Candidate_dataset.apply(addWords, new_field_name="p_words")
+    Candidate_dataset.apply(addWordPiece, new_field_name="t_words")
+    Candidate_dataset.apply(processItem, new_field_name="word_pieces")
+    Candidate_dataset.apply(processNum, new_field_name="word_nums")
+    Candidate_dataset.apply(addSeqlen, new_field_name="seq_len")
+    Candidate_dataset.field_arrays["word_pieces"].is_input = True
+    Candidate_dataset.field_arrays["seq_len"].is_input = True
+    Candidate_dataset.field_arrays["word_nums"].is_input = True
+    test_batch = DataSetIter(batch_size=10, dataset=Candidate_dataset, sampler=None)
+
+    outputs = []
+    for batch_x, batch_y in test_batch:
+        _move_dict_value_to_device(batch_x, batch_y, device=_get_model_device(model))
+        outputs.append(model.forward(batch_x["word_pieces"], batch_x["word_nums"], batch_x["seq_len"])['pred'])
+    outputs = torch.cat(outputs)
+    outputs = torch.nn.functional.softmax(outputs, dim=1).cpu().detach().numpy()
+
+    results_2 = np.array([item[2] for item in outputs])
+    results_1 = np.array([item[1] for item in outputs])
+
+    # 如果这里已经能找到精确匹配的就直接输出
+    if max(results_2) >= threshold:
+        return Candidate_hpos_sub[int(np.argmax(results_2))], max(results_2), "2"
+
+    if max(results_1) >= threshold:
+        return Candidate_hpos_sub[int(np.argmax(results_1))], max(results_1), "1"
+
+    return "None", None, "0"
 
 def process_text2phrases(text, clinical_ner_model):
     """
@@ -1124,7 +1170,7 @@ def annotate_phrases(text, phrases_list, hpo_tree, fasttext_model, cnn_model, be
                             Candidate_hpos_sub_total.append([raw_phrase, candidate_phrase, Candidate_hpos_sub])
                             next_phrase_items.append(phrase_item)
                 if len(Candidate_hpos_sub_total) > 0:
-                    ans = produceCandidateTriple(Candidate_hpos_sub_total, bert_model, hpo_tree, param3)
+                    ans = produceCandidateTriple(Candidate_hpos_sub_total, bert_model, param3)
                     for sub_ans, phrase_item in zip(ans, next_phrase_items):
                         if sub_ans[0] != "None":
                             result_list.append([phrase_item, sub_ans[0], sub_ans[1]])
