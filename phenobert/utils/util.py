@@ -760,7 +760,7 @@ def getSpliters():
     用于分割短句的分割词
     :return:
     """
-    spliters = set([word for word, pos in nltk.pos_tag(stopwords.words('english')) if pos in {'IN', 'CC', 'WP', 'TO', 'WDT'}]+[',', '.', ':', ';', '(', ')', '[', ']', '/'])
+    spliters = set([word for word, pos in nltk.pos_tag(stopwords.words('english')) if pos in {'CC', 'WP', 'TO', 'WDT'}]+[',', '.', ':', ';', '(', ')', '[', ']', '/'])
     return spliters
 
 
