@@ -360,7 +360,7 @@ class HPOModel(nn.Module):
     def __init__(self, in_channels, out_channels, output_dim1, input_dim, hidden_dim1, output_dim2, n_concept, indices, values):
         """
         input: (batch_size, max_seq_len, embedding_dim)
-        L: Laplacian矩阵
+        L: 祖先矩阵，使用稀疏矩阵(indices, values)
         Encoder --> (batch_size, output_dim)
         GCNNet --> (n_concepts, output_dim)
         output: (batch_size, n_concepts)
@@ -411,11 +411,10 @@ class HPO_model_Layer1(nn.Module):
     def __init__(self, in_channels, out_channels, output_dim1, output_dim2, n_class):
         """
         input: (batch_size, max_seq_len, embedding_dim)
-        L: Laplacian矩阵
         Encoder --> (batch_size, output_dim)
         GCNNet --> (n_concepts, output_dim)
         output: (batch_size, n_concepts)
-        后接softmax层
+        后接sigmoid层
         """
         super().__init__()
         self.output_dim2 = output_dim2
