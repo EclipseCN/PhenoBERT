@@ -39,8 +39,8 @@ class HPO_class:
         self.synonym = dic["Synonym"]
         self.xref = dic["Xref"]
         self.is_a = dic["Is_a"]
-        self.father = set(dic["Father"].keys())  # 爷爷
-        self.child = set(dic["Child"].keys())  # 孙子
+        self.father = set(dic["Father"].keys())  # 祖先
+        self.child = set(dic["Child"].keys())  # 子孙
         self.son = set(dic["Son"].keys())
 
 
@@ -398,7 +398,7 @@ class HPOTree:
 
     def getAllPhrasesAbnorm(self):
         """
-        获得所有Concept的Name & Synonyms
+        获得所有表型异常Concept的Name & Synonyms
         :return:
         """
         phrases_list = []
@@ -772,10 +772,9 @@ def getNegativeWords():
 
 def produceCandidateTriple(Candidate_hpos_sub_total, model, threshold):
     """
-    使用BERT判断Candidate_phrases中哪个与raw_phrase语义最接近；基于最大值方式
+    使用BERT判断Candidate_phrases中哪个与raw_phrase语义最接近；基于最大值方式；适用于批量处理
     :param Candidate_hpos_sub_total: 输出的短语及候选HPO嵌套列表
     :param model:
-    :param hpo_tree:
     :param threshold: 用作该模型输出阈值
     :return:
     """
@@ -835,12 +834,7 @@ def produceCandidateTriple(Candidate_hpos_sub_total, model, threshold):
 
 def produceCandidateTripleSlow(raw_phrase, Candidate_phrases, model, Candidate_hpos_sub, threshold):
     """
-    使用BERT判断Candidate_phrases中哪个与raw_phrase语义最接近；基于最大值方式
-    :param raw_phrase:
-    :param Candidate_phrases:
-    :param hpo_per_nums:
-    :param model:
-    :return:
+    使用BERT判断Candidate_phrases中哪个与raw_phrase语义最接近；基于最大值方式；适用于单个处理
     """
     from fastNLP.core.utils import _move_dict_value_to_device
     from fastNLP.core.utils import _get_model_device
@@ -880,7 +874,7 @@ def produceCandidateTripleSlow(raw_phrase, Candidate_phrases, model, Candidate_h
 
 def process_text2phrases(text, clinical_ner_model):
     """
-    用于从文本中提取有意义的短语
+    用于从文本中提取Clinical Text Segments
     :param text:自由文本
     :param clinical_ner_model: Stanza提供的预训练NER模型
     :return: List[PhraseItem]
@@ -1109,7 +1103,6 @@ def annotate_phrases(text, phrases_list, hpo_tree, fasttext_model, cnn_model, be
                 # 按升序排序
                 prediction = y.argsort().tolist()
                 scores_p = y.sort()[0] >= param1
-                # 挑选每个短语超过阈值的L1层的HPO，超过0.9的我们才认为是预测正确的L1层
                 Candidate_hpos = [
                     set([hpo_tree.getIdx2HPO_l1(prediction[idx1][idx2]) for idx2 in range(len(prediction[idx1])) if
                          scores_p[idx1][idx2]]) for idx1 in range(len(prediction))]
@@ -1199,7 +1192,8 @@ def annotate_phrases(text, phrases_list, hpo_tree, fasttext_model, cnn_model, be
 
         result_list = sorted([result_list[idx] for idx in range(len(result_list)) if idx not in idx_to_remove],
                              key=lambda x: x[0].start_loc)
-
+		
+		# 输出结果
         for item in result_list:
             if not item[0].no_flag:
                 if output_file_path is not None:
