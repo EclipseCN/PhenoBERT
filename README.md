@@ -1,32 +1,19 @@
 # PhenoBERT
  ![logo](https://github.com/EclipseCN/PhenoBERT/blob/main/phenobert/img/logo.jpg) 
 
-A knowledge-enhanced tool for recognizing human clinical phenotype with deep-learning.
+A combined deep learning tool for automated recognition of human phenotype ontology
 
 [![Build Status](https://travis-ci.com/EclipseCN/PhenoBERT.svg?branch=main)](https://travis-ci.com/EclipseCN/PhenoBERT) ![Python](https://img.shields.io/badge/python->=3.6-blue)
 
 ### What is PhenoBERT?
 
-PhenoBERT is a method that uses advanced deep learning methods (i.e. [convolutional neural networks](https://en.wikipedia.org/wiki/Convolutional_neural_network) and [BERT](https://en.wikipedia.org/wiki/BERT_(language_model))) to identify clinical disease phenotypes from free text. Currently, only English text is supported. Compared with other methods in the expert-annotated test set, PhenoBERT has reached SOTA effect.
-
-
-
-In GSC+(Lobo et al., 2017) dataset:
-
-| **Method**          | Precision |Recall|F1-score| **Set  Similarity** |
-| ------------------- | -------------- | -------------- | -------------- | ------------- |
-| NCBO  Annotator | 66.32   | 47.79          | 55.55     | 72.04    |
-| NeuralCR        | 70.52    | 63.98         | 67.09 | 78.34 |
-| Clinphen        | 49.82   | 37.99         | 43.11 | 56.29 |
-| MetaMapLite     | 62.43  | 46.67       | 53.41 | 66.02 |
-| Doc2hpo | 68.93 | 44.98       | 54.44     | 69.19   |
-| **PhenoBERT**    | **75.42** | **66.18**     | **70.50** | **82.39** |
+PhenoBERT is a method that uses advanced deep learning methods (i.e. [convolutional neural networks](https://en.wikipedia.org/wiki/Convolutional_neural_network) and [BERT](https://en.wikipedia.org/wiki/BERT_(language_model))) to identify clinical disease phenotypes from free text. Currently, only English text is supported. Compared with other methods in the expert-annotated test data sets, PhenoBERT has reached SOTA effect.
 
 
 
 ### Citation:
 
-Yuhao Feng, Lei Qi, Weidong Tian*; PhenoBERT: a knowledge-enhanced tool for recognizing human clinical phenotype with deep-learning. Coming soon
+Yuhao Feng, Lei Qi, Weidong Tian*; PhenoBERT: a combined deep learning tool for automated recognition of human phenotype ontology. Coming soon
 
 
 
