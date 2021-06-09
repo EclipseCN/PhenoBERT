@@ -56,7 +56,7 @@ class PhraseDataSet4trainCNN(Dataset):
         self.fasttext_model = fasttext_model
         self.embedding_dim = self.fasttext_model.get_dimension()
         self.num_class = num_class
-        with open(file_path, "r") as file:
+        with open(file_path, "r", encoding="utf-8") as file:
             for line in file:
                 inter = line.strip().split("\t")
                 phrase = processStr(inter[0])
@@ -93,7 +93,7 @@ class PhraseDataSet4trainCNN_sub(Dataset):
         self.max_seq_len = 30  # 整个数据集最长长度
         self.fasttext_model = fasttext_model
         self.embedding_dim = self.fasttext_model.get_dimension()
-        with open(file_path, "r") as file:
+        with open(file_path, "r", encoding="utf-8") as file:
             for line in file:
                 inter = line.strip().split("\t")
                 phrase = processStr(inter[0])
@@ -185,7 +185,7 @@ class PhraseDataSet4trainBERT(Dataset):
 
     def __init__(self, file_path, hpo2idx):
         self.data = []
-        with open(file_path, "r") as file:
+        with open(file_path, "r", encoding="utf-8") as file:
             for line in file:
                 inter = line.strip().split("\t")
                 phrase = inter[0]
@@ -281,7 +281,7 @@ class HPOTree:
     """
 
     def __init__(self):
-        with open(hpo_json_path) as json_file:
+        with open(hpo_json_path, encoding="utf-8") as json_file:
             self.data = json.loads(json_file.read())
 
         # # 统计phenotypic abnomality下的分布
@@ -749,7 +749,7 @@ def getStopWords():
     :return:
     """
     stopwords = set()
-    with open(stopwords_file_path) as file:
+    with open(stopwords_file_path, encoding="utf-8") as file:
         for line in file:
             stopwords.add(line.strip())
     return stopwords

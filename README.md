@@ -19,11 +19,11 @@ Yuhao Feng, Lei Qi, Weidong Tian*; PhenoBERT: a combined deep learning tool for 
 
 ### How to install PhenoBERT
 
-You can use PhenoBERT on your local machine. Due to some inevitable reason, the web version of PhenoBERT is not yet available.
+You can use PhenoBERT on your local machine, we have tested using docker. Due to some inevitable reason, the web version of PhenoBERT is not yet available.
 
 #### From Source
 
-1. Download total project from github.
+1. Download total project from GitHub (You need install `git` first).
 
 ```shell
 git clone https://github.com/EclipseCN/PhenoBERT.git
@@ -35,9 +35,9 @@ git clone https://github.com/EclipseCN/PhenoBERT.git
 cd PhenoBERT
 ```
 
-3. Install dependencies in the current Python3 environment.
+3. Install dependencies in the current Python (>=3.6) environment (You need install `python>=3.6` first).
 
-   Notice: we recommend using Python virtual environment to avoid confusion. 
+   Notice: we recommend using Python virtual environment (`venv`) to avoid confusion. 
 
 ```shell
 pip install -r requirements.txt
