@@ -1,7 +1,7 @@
 # PhenoBERT
  ![logo](https://github.com/EclipseCN/PhenoBERT/blob/main/phenobert/img/logo.jpg) 
 
-A combined deep learning tool for automated recognition of human phenotype ontology
+A combined deep learning method for automated recognition of human phenotype ontology
 
 [![Build Status](https://travis-ci.com/EclipseCN/PhenoBERT.svg?branch=main)](https://travis-ci.com/EclipseCN/PhenoBERT) ![Python](https://img.shields.io/badge/python->=3.6-blue)
 
@@ -13,7 +13,7 @@ PhenoBERT is a method that uses advanced deep learning methods (i.e. [convolutio
 
 ### Citation:
 
-Yuhao Feng, Lei Qi, Weidong Tian*; PhenoBERT: a combined deep learning tool for automated recognition of human phenotype ontology. Coming soon
+Yuhao Feng, Lei Qi, Weidong Tian*; PhenoBERT: a combined deep learning method for automated recognition of human phenotype ontology. Coming soon
 
 
 
