@@ -192,7 +192,7 @@ Match
 
 #### GUI application
 
-For users who are not comfortable with command line tools, we also provide GUI annotation applications.
+For users who are not familiar with command line tools, we also provide GUI annotation applications.
 
 Simply use 
 
