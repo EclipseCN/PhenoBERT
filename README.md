@@ -13,7 +13,7 @@ PhenoBERT is a method that uses advanced deep learning methods (i.e. [convolutio
 
 ### Citation:
 
-Yuhao Feng, Lei Qi, Weidong Tian*; PhenoBERT: a combined deep learning method for automated recognition of human phenotype ontology. Coming soon
+Y. Feng, L. Qi and W. Tian, "PhenoBERT: a combined deep learning method for automated recognition of human phenotype ontology," in IEEE/ACM Transactions on Computational Biology and Bioinformatics, doi: 10.1109/TCBB.2022.3170301.
 
 
 
